@@ -5,9 +5,9 @@ import Art1 from "../../assets/authHeader.png";
 import Art2 from "../../assets/authFooter.png";
 import Logo from "../../assets/loginLogo.png";
 
-import { Container, Title, Form, InputTitle, Space1, Space2 } from './styles';
+import { Container, Title, Form, InputTitle, Space1, LogButton, LogButton2, Content } from './styles';
 
-export default function SignIn() {
+export default function SignIn({ navigation }) {
 
   return (
     <Container>
@@ -43,6 +43,20 @@ export default function SignIn() {
                 // value={this.state.email}
                 ></Space1>
             </View>
+
+            <LogButton onPress={() => navigation.navigate("Home")}>
+              <Content style={{ color: "#FFF", fontWeight: "500" }}>Sign in</Content>
+             </LogButton>
+
+            <LogButton2
+            style={{ alignSelf: "center", marginTop: 32 }}
+            onPress={() => navigation.navigate("Dash")}
+            >
+              <Content style={{ color: "#414959", fontSize: 13 }}> New to SocialApp? 
+              <Content style={{ fontWeight: "500", color: "#E9446A" }}> Sign up</Content>
+              </Content>
+            </LogButton2>
+
         </Form>
 
     </Container>

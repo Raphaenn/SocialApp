@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { StyleSheet, Animated } from "react-native"
+import { StyleSheet, Animated, TouchableOpacity } from "react-native"
 
 export const Container = styled.View`
     flex: 1;
@@ -32,5 +32,16 @@ export const Space1 = styled.TextInput`
     color: #161F3D;
 `;
 
-export const Space2 = styled.TextInput``;
+export const LogButton = styled(TouchableOpacity)`
+    margin: 30px;
+    background: #E9446A;
+    border-radius: 4px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const LogButton2 = styled(TouchableOpacity)``;
+
+export const Content = styled.Text``;
 
