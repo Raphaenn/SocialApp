@@ -3,11 +3,11 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
     padding-top: 64px;
     padding-bottom: 16px;
-    background: #FFF;
+    background: #63dfe4;
     align-items: center;
     justify-content: center;
-    border-bottom-width: 1px;
-    border-bottom-color: #EBECF4;
+    /* border-bottom-width: 1px; */
+    /* border-bottom-color: #EBECF4; */
 `;
 
 export const PostList = styled.FlatList`
@@ -48,7 +48,7 @@ export const FeedText = styled.Text`
 `;
 
 export const ImagePost = styled.Image`
-    /* width: undefined; */
+    width: undefined;
     height: 150px;
     border-radius: 5px;
     margin: 16px;

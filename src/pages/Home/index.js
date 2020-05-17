@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 import { withNavigationFocus } from 'react-navigation';
+import Icon from "react-native-vector-icons/Ionicons";
 
 import Background from "../../components/background";
 import { Container, PostList, FeedItem, Avatar, Name, TextTime, FeedText, ImagePost } from './styles';
@@ -50,19 +51,22 @@ export default function Home() {
     return (
     <FeedItem>
       <Avatar source={post.avatar}></Avatar>
-
       <View style={{ flex: 1 }}>
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
           <View>
             <Name>{post.name}</Name>
             <TextTime>{post.timestamp}</TextTime>
           </View>
+          <Icon name="ios-more" size={24} color="#73788B" />
+        </View>
+      
+        <FeedText>{post.text}</FeedText>
+        <ImagePost source={post.image} resizeMode="cover" />
+        <View style={{flexDirection: "row"}} >
+          <Icon name="ios-heart-empty" size={24} color="#73788B" style={{ marginRight: 16 }} />
+          <Icon name="ios-chatboxes" size={24} color="#73788B" />
         </View>
       </View>
-      
-      <FeedText>{post.text}</FeedText>
-      <ImagePost source={post.image} resizeMode="cover" />
-
     </FeedItem>
     );
   }
@@ -71,7 +75,7 @@ export default function Home() {
     <Background>
       <Container style={{ shadowColor: "#454D65", shadowOffset: { height: 5 }, shadowRadius: 15, 
       shadowOpacity: 0.2, zIndex: 10}}>
-        <Text>Feed</Text>
+        <Text style={{fontSize: 20, fontWeight: "500", color: "#fff"}}>Feed</Text>
       </Container>
 
       <PostList
