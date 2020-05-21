@@ -11,18 +11,20 @@ import Profile from "./pages/Profile";
 import PostScreen from "./pages/PostScreen";
 
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 export default createAppContainer(
     createSwitchNavigator({
         Sign: createSwitchNavigator({
             SignIn,
+            SignUp
         }),
         App: createBottomTabNavigator({
             Home: {
               screen: Home,
               navigationOptions: {
               tabBarIcon: ({ tintColor }) => <Icon name="ios-home" size={24} color={tintColor} />
-              }
+              },
             },
             Dash: {
                 screen: Dash,
@@ -66,10 +68,10 @@ export default createAppContainer(
             tabBarOptions: {
                 showLabel: false,
                 keyboardHidesTabBar: true,
-                activeTintColor: '#fff',
-                inactiveTintColor: 'rgba(255, 255, 255, 0.6)',
+                activeTintColor: '#161F3D',
+                inactiveTintColor: '#B8BBC4',
                 style: {
-                    backgroundColor: '#68b6ef',
+                    backgroundColor: '#EBECF4',
                 }
             }
         })

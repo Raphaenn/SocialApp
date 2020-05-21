@@ -3,11 +3,11 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
     padding-top: 64px;
     padding-bottom: 16px;
-    background: #63dfe4;
+    background: #FFF;
     align-items: center;
     justify-content: center;
-    /* border-bottom-width: 1px; */
-    /* border-bottom-color: #EBECF4; */
+    border-bottom-width: 1px;
+    border-bottom-color: #EBECF4;
 `;
 
 export const PostList = styled.FlatList`

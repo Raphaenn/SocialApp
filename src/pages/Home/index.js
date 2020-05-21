@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList } from "react-native";
-import { withNavigationFocus } from 'react-navigation';
+import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import Background from "../../components/background";
@@ -55,7 +55,7 @@ export default function Home() {
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
           <View>
             <Name>{post.name}</Name>
-            <TextTime>{post.timestamp}</TextTime>
+            <TextTime>{moment(post.timestamp).fromNow()}</TextTime>
           </View>
           <Icon name="ios-more" size={24} color="#73788B" />
         </View>
@@ -75,7 +75,7 @@ export default function Home() {
     <Background>
       <Container style={{ shadowColor: "#454D65", shadowOffset: { height: 5 }, shadowRadius: 15, 
       shadowOpacity: 0.2, zIndex: 10}}>
-        <Text style={{fontSize: 20, fontWeight: "500", color: "#fff"}}>Feed</Text>
+        <Text style={{fontSize: 20, fontWeight: "500", color: "#161F3D"}}>Feed</Text>
       </Container>
 
       <PostList
