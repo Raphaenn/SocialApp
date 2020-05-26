@@ -20,7 +20,7 @@ export default function SignIn({ navigation }) {
       const user = await firebase.auth().signInWithEmailAndPassword(email, password);
 
       setAuthenticate(true);
-      console.tron.log(user)
+      navigation.navigate('Home');
 
     } catch(err) {
       console.tron.log(err);

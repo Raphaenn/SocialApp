@@ -50,6 +50,7 @@ export default function Home() {
   renderPost = post => {
     return (
     <FeedItem>
+      {/* <StatusBar barStyle="light-content"></StatusBar> */}
       <Avatar source={post.avatar}></Avatar>
       <View style={{ flex: 1 }}>
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
