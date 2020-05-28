@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, LayoutAnimation } from "react-native";
-import firebase from "react-native-firebase"
+import { View, Text, Image, StatusBar, LayoutAnimation } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+
+import { signInRequest } from "../../store/modules/auth/actions";
+
 
 import Art1 from "../../assets/authHeader.png";
 import Art2 from "../../assets/authFooter.png";
@@ -13,18 +16,10 @@ export default function SignIn({ navigation }) {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ authenticate, setAuthenticate ] = useState(false)
+  const dispatch = useDispatch();
 
-  async function login() {
-    
-    try {
-      const user = await firebase.auth().signInWithEmailAndPassword(email, password);
-
-      setAuthenticate(true);
-      navigation.navigate('Home');
-
-    } catch(err) {
-      console.tron.log(err);
-    }
+  function login() {
+    dispatch(signInRequest(email, password));
   };
 
   return (

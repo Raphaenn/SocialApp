@@ -13,7 +13,7 @@ import PostScreen from "./pages/PostScreen";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
-export default createAppContainer(
+export default (signed = false) => createAppContainer(
     createSwitchNavigator({
         Sign: createSwitchNavigator({
             SignIn,
@@ -75,5 +75,7 @@ export default createAppContainer(
                 }
             }
         })
+    }, {
+        initialRouteName: signed ? 'App' : 'Sign'
     })
 );

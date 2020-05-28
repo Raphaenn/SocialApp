@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import firebase from "react-native-firebase";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, LayoutAnimation } from "react-native";
+import React, { useState } from 'react';
+import { View, Text, Image, StatusBar } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useDispatch } from "react-redux";
+
+import { signUpRequest } from "../../store/modules/auth/actions";
 
 import Art1 from "../../assets/authHeader.png";
 import Art2 from "../../assets/authFooter.png";
@@ -11,20 +13,13 @@ import { Container, Title, BackButton, TopDiv, AvatarInput, Form, InputTitle, Sp
 
 export default function SignUp({ navigation }) {
 
+  const diapatch = useDispatch();
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ authenticate, setAuthenticate ] = useState(false)
 
-  async function Register() {
+   function Register() {
+    diapatch(signUpRequest(email, password))
     
-    try {
-      const user = await firebase.auth().signInWithEmailAndPassword(email, password);
-
-      setAuthenticate(true);
-
-    } catch(err) {
-      console.tron.log(err);
-    }
   };
 
   return (
@@ -56,14 +51,14 @@ export default function SignUp({ navigation }) {
 
         <Form>
 
-        <View>
+        {/* <View>
           <InputTitle>Full Name</InputTitle>
               <Space1
               autoCapitalize="none"
               onChangeText={setEmail}
               value={email}
               ></Space1>
-          </View>
+          </View> */}
 
           <View style={{ marginTop: 32 }}>
             <InputTitle>Email Address</InputTitle>
@@ -84,7 +79,7 @@ export default function SignUp({ navigation }) {
             </View>
 
             <LogButton onPress={() => Register()}>
-              <Content style={{ color: "#FFF", fontWeight: "500" }}>Sign in</Content>
+              <Content style={{ color: "#FFF", fontWeight: "500" }}>Sign Up</Content>
              </LogButton>
 
             <LogButton2
@@ -97,8 +92,5 @@ export default function SignUp({ navigation }) {
             </LogButton2>
 
         </Form>
-
-        { authenticate ? <Text>Foi</Text> : null }
-
     </Container>
 )};

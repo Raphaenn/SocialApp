@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { StyleSheet, Animated, TouchableOpacity } from "react-native"
+import { StyleSheet, Animated, TouchableOpacity } from "react-native";
 
 export const Container = styled.View`
     flex: 1;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
+import { View, Text, StyleSheet, Image, FlatList, StatusBar } from "react-native";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -50,7 +50,7 @@ export default function Home() {
   renderPost = post => {
     return (
     <FeedItem>
-      {/* <StatusBar barStyle="light-content"></StatusBar> */}
+      <StatusBar barStyle="dark-content"></StatusBar>
       <Avatar source={post.avatar}></Avatar>
       <View style={{ flex: 1 }}>
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>

@@ -1,10 +1,22 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from "react-redux";
 
-// import { Container } from './styles';
+import { signOut } from "../../store/modules/auth/actions";
 
-const Profile = () => {
-  return <View />;
+import { Container, Out } from './styles';
+
+export default function Profile() {
+
+  const dispatch = useDispatch();
+
+  function LogOut() {
+    dispatch(signOut());
+  }
+
+  return (
+    <Container>
+      <Out onPress={() => LogOut()}></Out>
+    </Container>
+  )
 }
-
-export default Profile;
