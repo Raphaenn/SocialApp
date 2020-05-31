@@ -1,8 +1,8 @@
 import { takeLatest, call, put, all, take } from "redux-saga/effects";
 import firebase from "react-native-firebase";
 import { Alert } from "react-native";
-// import FirebaseKeys from "../../../config/FireConfig";
 
+import PhotoUpload from "../../../services/PhotoUpload";
 import { signInSuccess } from "./actions";
 
 export function* SignIn({ payload }) {
@@ -21,19 +21,27 @@ export function* SignIn({ payload }) {
 };
 
 export function* signUp({ payload }) {
-  const { email, password } = payload;
+  const { name, email, password, avatar } = payload;
+  let remoteUri = null;
 
   try {
+    // Criar usuário com email e password
     const response = yield firebase.auth().createUserWithEmailAndPassword(email, password);
+    const { uid } = response.user;
 
-    let db = firebase.firestore().collection("users").doc('Data');
-    console.tron.log(db)
-
+    // Adiciona um doc com o uid do usuário e os dados de nome, email e seu avatar
+    let db = firebase.firestore().collection("Users").doc(uid);
     db.set({
-      name: 'Usuario',
+      name: name,
       email: email,
-      password: password
-    })
+      avatar: null
+    });
+
+    // // Adicionar avatar
+    // if(avatar) {
+    //   remoteUri = yield PhotoUpload(avatar, `avatars/${uid}`);
+    //   db.set({ avatar: remoteUri }, { merge: true });
+    // }
 
   } catch(err) {
     Alert.alert("Erro ao cadastrar usuário");

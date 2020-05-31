@@ -51,6 +51,7 @@ export default function SignIn({ navigation }) {
             <View style={{ marginTop: 32 }}>
             <InputTitle>Passaword</InputTitle>
                 <Space1
+                secureTextEntry
                 autoCapitalize="none"
                 onChangeText={setPassword}
                 value={password}
