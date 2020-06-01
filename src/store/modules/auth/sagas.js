@@ -21,6 +21,7 @@ export function* SignIn({ payload }) {
 };
 
 export function* signUp({ payload }) {
+
   const { name, email, password, avatar } = payload;
   let remoteUri = null;
 
@@ -29,19 +30,19 @@ export function* signUp({ payload }) {
     const response = yield firebase.auth().createUserWithEmailAndPassword(email, password);
     const { uid } = response.user;
 
-    // Adiciona um doc com o uid do usuário e os dados de nome, email e seu avatar
+    // Adiciona um doc com o uid do usuário e os dados de nome, email e seu avatar No storage bucket defined in firebase options
     let db = firebase.firestore().collection("Users").doc(uid);
     db.set({
       name: name,
       email: email,
-      avatar: null
+      avatar: avatar
     });
 
-    // // Adicionar avatar
-    // if(avatar) {
-    //   remoteUri = yield PhotoUpload(avatar, `avatars/${uid}`);
-    //   db.set({ avatar: remoteUri }, { merge: true });
-    // }
+    // Adicionar avatar
+    if(avatar) {
+      remoteUri = yield PhotoUpload(avatar, `avatars/${uid}`);
+      db.set({ avatar: remoteUri }, { merge: true });
+    }
 
   } catch(err) {
     Alert.alert("Erro ao cadastrar usuário");

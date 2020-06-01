@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StatusBar } from "react-native";
+import ImagePicker from 'react-native-image-picker';
 import Icon from "react-native-vector-icons/Ionicons";
 import { useDispatch } from "react-redux";
 
@@ -18,24 +19,33 @@ export default function SignUp({ navigation }) {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ avatar, setAvatar ] = useState(null);
+  const options = {
+    Title: 'Select Avatar',
+    storageOptions: {
+      skipBackup: true,
+      path: 'images',
+    },
+  };
 
    function Register() {
     diapatch(signUpRequest(name, email, password, avatar))
     
   };
 
-//   handlePickAvatar = async () => {
+  async function handlePickAvatar() {
+    let result = ImagePicker.launchImageLibrary(options, (response) => {
+      console.tron.log('Response = ', response);
 
-//     let result = await ImagePicker.launchImageLibraryAsync({
-//         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-//         allowsEditing: true,
-//         aspect: [4, 3]
-//     });
-
-//     if (!result.cancelled) {
-//         this.setState({ user: { ...this.state.user, avatar: result.uri } });
-//     }
-// };
+      if(response.didCancel) {
+        console.tron.log('User cancelled image select');
+      } else if(response.error) {
+        console.tron.log('ImagePicker Error: ', response.error);
+      } else {
+        setAvatar(response.uri)
+      }
+      
+    })
+};
 
   return (
     <Container>
@@ -54,8 +64,8 @@ export default function SignUp({ navigation }) {
       
       <TopDiv>
         <Title>{`Hello!\n Sign up to get started.`}</Title>
-        <AvatarInput /* onPress={() => handlePickAvatar()} */>
-          <Image style={{ position: "absolute", width: 100, height: 100, borderRadius: 50 }}/>
+        <AvatarInput onPress={() => handlePickAvatar()}>
+          <Image source={{ uri: avatar || 'https://api.adorable.io/avatars/200/abott@adorable.png' }} style={{ position: "absolute", width: 100, height: 100, borderRadius: 50 }}/>
           <Icon name="ios-add" size={40} color="#fff" style={{marginTop: 6, marginLeft: 2}} />
         </AvatarInput>
       </TopDiv>

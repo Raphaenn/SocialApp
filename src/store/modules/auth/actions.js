@@ -18,7 +18,7 @@ export function signFailure() {
     };
 }
 
-export function signUpRequest(name, email, password) {
+export function signUpRequest(name, email, password, avatar) {
     return {
         type: '@auth/SIGN_UP_REQUEST',
         payload: { name, email, password, avatar }
