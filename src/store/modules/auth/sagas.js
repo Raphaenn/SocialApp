@@ -1,9 +1,9 @@
-import { takeLatest, call, put, all, take } from "redux-saga/effects";
+import { takeLatest, put, all } from "redux-saga/effects";
 import firebase from "react-native-firebase";
 import { Alert } from "react-native";
 
 import PhotoUpload from "../../../services/PhotoUpload";
-import { signInSuccess } from "./actions";
+import { signInSuccess, signFailure } from "./actions";
 
 export function* SignIn({ payload }) {
   const { email, password } = payload;
@@ -17,6 +17,7 @@ export function* SignIn({ payload }) {
 
     } catch(err) {
       Alert.alert(err.message)
+      yield put(signFailure());
     }
 };
 
@@ -44,8 +45,11 @@ export function* signUp({ payload }) {
       db.set({ avatar: remoteUri }, { merge: true });
     }
 
+    yield put(signInSuccess(email, uid))
+
   } catch(err) {
     Alert.alert("Erro ao cadastrar usuário");
+    yield put(signFailure());
   };
 }
 
@@ -54,6 +58,7 @@ export function* signOut() {
 }
 
 export default all([
+    //takeLatest('persist/REHYDRATE', setToken) - lembrar o que faz,
     takeLatest('@auth/SIGN_IN_REQUEST', SignIn),
     takeLatest('@auth/SIGN_OUT', signOut),
     takeLatest('@auth/SIGN_UP_REQUEST', signUp)

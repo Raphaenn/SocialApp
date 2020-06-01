@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StatusBar, LayoutAnimation } from "react-native";
+import { View, Text, Image, ActivityIndicator } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { signInRequest } from "../../store/modules/auth/actions";
@@ -15,7 +15,8 @@ export default function SignIn({ navigation }) {
 
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ authenticate, setAuthenticate ] = useState(false)
+  const [ authenticate, setAuthenticate ] = useState(false);
+  const loading = useSelector(state => state.auth.loading);
   const dispatch = useDispatch();
 
   function login() {
@@ -59,7 +60,10 @@ export default function SignIn({ navigation }) {
             </View>
 
             <LogButton onPress={() => login()}>
-              <Content style={{ color: "#FFF", fontWeight: "500" }}>Sign in</Content>
+              {
+                loading ? <ActivityIndicator size="small" color="#FFF" /> : 
+                <Content style={{ color: "#FFF", fontWeight: "500" }}>Sign in</Content>
+              }
              </LogButton>
 
             <LogButton2

@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StatusBar } from "react-native";
+import { View, Text, Image, StatusBar, ActivityIndicator } from "react-native";
 import ImagePicker from 'react-native-image-picker';
 import Icon from "react-native-vector-icons/Ionicons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { signUpRequest } from "../../store/modules/auth/actions";
 
 import Art1 from "../../assets/authHeader.png";
 import Art2 from "../../assets/authFooter.png";
-import Logo from "../../assets/loginLogo.png";
 
 import { Container, Title, BackButton, TopDiv, AvatarInput, Form, InputTitle, Space1, LogButton, LogButton2, Content } from './styles';
 
 export default function SignUp({ navigation }) {
 
   const diapatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading)
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -105,7 +105,8 @@ export default function SignUp({ navigation }) {
             </View>
 
             <LogButton onPress={() => Register()}>
-              <Content style={{ color: "#FFF", fontWeight: "500" }}>Sign Up</Content>
+              {loading ? <ActivityIndicator size="small" color="#FFF" /> : 
+              <Content style={{ color: "#FFF", fontWeight: "500" }}>Sign Up</Content>}
              </LogButton>
 
             <LogButton2
