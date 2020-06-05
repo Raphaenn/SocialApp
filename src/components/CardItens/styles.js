@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import LinearGradient from "react-native-linear-gradient";
-import { TouchableOpacity, TouchableWithoutFeedback } from "react-native";
+import { TouchableWithoutFeedback } from "react-native";
 import { FlatList } from 'react-native-gesture-handler';
 
 export const Container = styled(LinearGradient).attrs({
@@ -71,21 +71,17 @@ export const RightInside = styled.View`
 `;
 
 export const ContentView = styled.View`
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 10px;
-    height: 70%;
-    width: 75%;
-    margin-left: -30%;
     max-width: 100%;
 `;
 
-export const IconView = styled.View`
-    flex: 0.8;
+export const ColumnView = styled.View`
+    flex-direction: row;
     align-items: center;
-`;
-
-export const TextView = styled.View`
-    flex: 3;
+    margin: 0px 0px 10px 0px;
+    max-height: 30px;
+    max-width: 200px;
 `;
 
 // Expanded 
@@ -123,6 +119,8 @@ export const TextDayE = styled.Text`
 
 export const Avatar = styled.View`
     background: #F07B3F;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     border-radius: 20px;
@@ -138,30 +136,35 @@ export const ContentTop = styled.View`
 `;
 
 export const ContentViewE = styled.View`
-    flex-direction: row;
+    margin-left: 10px;
+    flex-direction: column;
     margin-top: 15px;
-    height: 70%;
-    width: 75%;
     max-width: 100%;
 `;
 
-export const IconViewE = styled.View`
-    flex: 0.8;
+export const ColumnViewE = styled.View`
+    flex-direction: row;
     align-items: center;
-`;
-
-export const TextViewE = styled.View`
-    flex: 3;
-    margin-left: -10px;
+    margin: 0px 0px 10px 10px;
+    max-height: 50px;
+    max-width: 90%;
 `;
 
 export const ContentBottom = styled.View`
     flex: 3;
+    margin-top: 10px;
+`;
+
+export const ColumnView2 = styled.View`
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 0px 20px 10px;
+    max-height: 30px;
 `;
 
 export const ContentViewBottom = styled.View`
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 15px;
-    height: 70%;
     width: 90%;
+    margin-left: 10px;
 `;

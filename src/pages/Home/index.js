@@ -11,132 +11,51 @@ import CardItens from "../../components/CardItens";
 
 // Avatar, Name, TextTime, FeedText, ImagePost 
 
-posts = [
-  {
-      id: "1",
-      name: "Joe McKay",
-      text:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      timestamp: 1569109273726,
-      avatar: require("../../assets/tempAvatar.jpg"),
-      image: require("../../assets/tempImage1.jpg")
-  },
-  {
-      id: "2",
-      name: "Karyn Kim",
-      text:
-          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      timestamp: 1569109273726,
-      avatar: require("../../assets/tempAvatar.jpg"),
-      image: require("../../assets/tempImage2.jpg")
-  },
-  {
-      id: "3",
-      name: "Emerson Parsons",
-      text:
-          "Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant.",
-      timestamp: 1569109273726,
-      avatar: require("../../assets/tempAvatar.jpg"),
-      image: require("../../assets/tempImage3.jpg")
-  },
-  {
-      id: "4",
-      name: "Kathie Malone",
-      text:
-          "At varius vel pharetra vel turpis nunc eget lorem. Lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor. Adipiscing tristique risus nec feugiat in fermentum.",
-      timestamp: 1569109273726,
-      avatar: require("../../assets/tempAvatar.jpg"),
-      image: require("../../assets/tempImage4.jpg")
-  }
-];
-
-feed = [
-  {
-    id: "1",
-    name: "Raphael Neves",
-    Activ1: "Estudar desenvolvimento",
-    Activ2: "Correr 3km na praia",
-    Activ3: "Ficar o dia inteiro sem matar um inseto",
-    Gratidao1: "Sou feliz porque tive o pão na mesa",
-    Gratidao2: "Sou feliz por ter bons amigos",
-    Gratidao3: "Sou grato por ter um cachorro legal",
-    timestamp: 1569109273726,
-    avatar: require("../../assets/tempAvatar.jpg"),
-  },
-  {
-    id: "2",
-    name: "Raphael Neves",
-    Activ1: "Estudar desenvolvimento",
-    Activ2: "Correr 3km na praia",
-    Activ3: "Ficar o dia inteiro sem matar um inseto",
-    Gratidao1: "Sou feliz porque tive o pão na mesa",
-    Gratidao2: "Sou feliz por ter bons amigos",
-    Gratidao3: "Sou grato por ter um cachorro legal",
-    timestamp: 1569109273726,
-    avatar: require("../../assets/tempAvatar.jpg"),
-  },
-  {
-    id: "3",
-    name: "Raphael Neves",
-    Activ1: "Estudar desenvolvimento",
-    Activ2: "Correr 3km na praia",
-    Activ3: "Ficar o dia inteiro sem matar um inseto",
-    Gratidao1: "Sou feliz porque tive o pão na mesa",
-    Gratidao2: "Sou feliz por ter bons amigos",
-    Gratidao3: "Sou grato por ter um cachorro legal",
-    timestamp: 1569109273726,
-    avatar: require("../../assets/tempAvatar.jpg"),
-  },
-  
-
-]
-
 export default function Home() {
+
+  feed = [
+    {
+      id: "1",
+      name: "Raphael Neves",
+      Activ1: "Estudei desenvolvimento",
+      Activ2: "Corri 3km na praia",
+      Activ3: "Fiquei o dia inteiro sem matar um inseto",
+      Gratidao1: "Sou feliz porque tive o pão na mesa",
+      Gratidao2: "Sou feliz por ter bons amigos",
+      Gratidao3: "Sou grato por ter um cachorro legal",
+      timestamp: 1569109273726,
+      avatar: require("../../assets/tempAvatar.jpg"),
+    },
+    {
+      id: "2",
+      name: "Raphael Neves",
+      Activ1: "Aprendi tecnicas novas no react",
+      Activ2: "Melhorei minha jogabilidade no Cod",
+      Activ3: "Fui passear com Maggie",
+      Gratidao1: "Sou feliz porque tive o pão na mesa",
+      Gratidao2: "Sou feliz por ter bons amigos",
+      Gratidao3: "Sou grato por ter um cachorro legal",
+      timestamp: 1569109273726,
+      avatar: require("../../assets/tempAvatar.jpg"),
+    },
+    {
+      id: "3",
+      name: "Raphael Neves",
+      Activ1: "Fiquei o dia inteiro sem ler globo e entrar no insta",
+      Activ2: "Corri na praia - 10km",
+      Activ3: "Terminei de ler um livro da biblia",
+      Gratidao1: "Sou feliz porque tive o pão na mesa",
+      Gratidao2: "Sou feliz por ter bons amigos",
+      Gratidao3: "Sou grato por ter um cachorro legal",
+      timestamp: 1569109273726,
+      avatar: require("../../assets/tempAvatar.jpg"),
+    },
+  ]
 
   const transitionRef = useRef();
   const transition = <Transition.Together propagation='bottom'>
       <Transition.Change  durationMs={200}/>
   </Transition.Together>
-
-  feed = [
-      {
-        id: "1",
-        name: "Raphael Neves",
-        Activ1: "Estudar desenvolvimento",
-        Activ2: "Correr 3km na praia",
-        Activ3: "Ficar o dia inteiro sem matar um inseto",
-        Gratidao1: "Sou feliz porque tive o pão na mesa",
-        Gratidao2: "Sou feliz por ter bons amigos",
-        Gratidao3: "Sou grato por ter um cachorro legal",
-        timestamp: 1569109273726,
-        avatar: require("../../assets/tempAvatar.jpg"),
-      },
-      {
-        id: "2",
-        name: "Raphael Neves",
-        Activ1: "Estudar desenvolvimento",
-        Activ2: "Correr 3km na praia",
-        Activ3: "Ficar o dia inteiro sem matar um inseto",
-        Gratidao1: "Sou feliz porque tive o pão na mesa",
-        Gratidao2: "Sou feliz por ter bons amigos",
-        Gratidao3: "Sou grato por ter um cachorro legal",
-        timestamp: 1569109273726,
-        avatar: require("../../assets/tempAvatar.jpg"),
-      },
-      {
-        id: "3",
-        name: "Raphael Neves",
-        Activ1: "Estudar desenvolvimento",
-        Activ2: "Correr 3km na praia",
-        Activ3: "Ficar o dia inteiro sem matar um inseto",
-        Gratidao1: "Sou feliz porque tive o pão na mesa",
-        Gratidao2: "Sou feliz por ter bons amigos",
-        Gratidao3: "Sou grato por ter um cachorro legal",
-        timestamp: 1569109273726,
-        avatar: require("../../assets/tempAvatar.jpg"),
-      },
-    
-    ]
 
     const onPress = () => {
       transitionRef.current.animateNextTransition();
