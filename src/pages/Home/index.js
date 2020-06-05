@@ -1,10 +1,15 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, StatusBar } from "react-native";
+//Responsável por receber o Component CardItem, passando os itens do feed como parametros. Depois de receber o CardItem, apenas o carrego dentro de uma view Transition, que é responsável por chamar ref e a transition animation para a flatlist
+
+import React, { useRef } from 'react';
+import { View, Text, FlatList, StatusBar } from "react-native";
 import moment from "moment";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Transitioning, Transition } from 'react-native-reanimated';
 
 import Background from "../../components/background";
-import { Container, PostList, FeedItem, Avatar, Name, TextTime, FeedText, ImagePost } from './styles';
+import { Container, FlatConainer } from './styles';
+import CardItens from "../../components/CardItens";
+
+// Avatar, Name, TextTime, FeedText, ImagePost 
 
 posts = [
   {
@@ -45,46 +50,124 @@ posts = [
   }
 ];
 
+feed = [
+  {
+    id: "1",
+    name: "Raphael Neves",
+    Activ1: "Estudar desenvolvimento",
+    Activ2: "Correr 3km na praia",
+    Activ3: "Ficar o dia inteiro sem matar um inseto",
+    Gratidao1: "Sou feliz porque tive o pão na mesa",
+    Gratidao2: "Sou feliz por ter bons amigos",
+    Gratidao3: "Sou grato por ter um cachorro legal",
+    timestamp: 1569109273726,
+    avatar: require("../../assets/tempAvatar.jpg"),
+  },
+  {
+    id: "2",
+    name: "Raphael Neves",
+    Activ1: "Estudar desenvolvimento",
+    Activ2: "Correr 3km na praia",
+    Activ3: "Ficar o dia inteiro sem matar um inseto",
+    Gratidao1: "Sou feliz porque tive o pão na mesa",
+    Gratidao2: "Sou feliz por ter bons amigos",
+    Gratidao3: "Sou grato por ter um cachorro legal",
+    timestamp: 1569109273726,
+    avatar: require("../../assets/tempAvatar.jpg"),
+  },
+  {
+    id: "3",
+    name: "Raphael Neves",
+    Activ1: "Estudar desenvolvimento",
+    Activ2: "Correr 3km na praia",
+    Activ3: "Ficar o dia inteiro sem matar um inseto",
+    Gratidao1: "Sou feliz porque tive o pão na mesa",
+    Gratidao2: "Sou feliz por ter bons amigos",
+    Gratidao3: "Sou grato por ter um cachorro legal",
+    timestamp: 1569109273726,
+    avatar: require("../../assets/tempAvatar.jpg"),
+  },
+  
+
+]
+
 export default function Home() {
 
-  renderPost = post => {
-    return (
-    <FeedItem>
-      <StatusBar barStyle="dark-content"></StatusBar>
-      <Avatar source={post.avatar}></Avatar>
-      <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-          <View>
-            <Name>{post.name}</Name>
-            <TextTime>{moment(post.timestamp).fromNow()}</TextTime>
-          </View>
-          <Icon name="ios-more" size={24} color="#73788B" />
-        </View>
-      
-        <FeedText>{post.text}</FeedText>
-        <ImagePost source={post.image} resizeMode="cover" />
-        <View style={{flexDirection: "row"}} >
-          <Icon name="ios-heart-empty" size={24} color="#73788B" style={{ marginRight: 16 }} />
-          <Icon name="ios-chatboxes" size={24} color="#73788B" />
-        </View>
-      </View>
-    </FeedItem>
-    );
+  const transitionRef = useRef();
+  const transition = <Transition.Together propagation='bottom'>
+      <Transition.Change  durationMs={200}/>
+  </Transition.Together>
+
+  feed = [
+      {
+        id: "1",
+        name: "Raphael Neves",
+        Activ1: "Estudar desenvolvimento",
+        Activ2: "Correr 3km na praia",
+        Activ3: "Ficar o dia inteiro sem matar um inseto",
+        Gratidao1: "Sou feliz porque tive o pão na mesa",
+        Gratidao2: "Sou feliz por ter bons amigos",
+        Gratidao3: "Sou grato por ter um cachorro legal",
+        timestamp: 1569109273726,
+        avatar: require("../../assets/tempAvatar.jpg"),
+      },
+      {
+        id: "2",
+        name: "Raphael Neves",
+        Activ1: "Estudar desenvolvimento",
+        Activ2: "Correr 3km na praia",
+        Activ3: "Ficar o dia inteiro sem matar um inseto",
+        Gratidao1: "Sou feliz porque tive o pão na mesa",
+        Gratidao2: "Sou feliz por ter bons amigos",
+        Gratidao3: "Sou grato por ter um cachorro legal",
+        timestamp: 1569109273726,
+        avatar: require("../../assets/tempAvatar.jpg"),
+      },
+      {
+        id: "3",
+        name: "Raphael Neves",
+        Activ1: "Estudar desenvolvimento",
+        Activ2: "Correr 3km na praia",
+        Activ3: "Ficar o dia inteiro sem matar um inseto",
+        Gratidao1: "Sou feliz porque tive o pão na mesa",
+        Gratidao2: "Sou feliz por ter bons amigos",
+        Gratidao3: "Sou grato por ter um cachorro legal",
+        timestamp: 1569109273726,
+        avatar: require("../../assets/tempAvatar.jpg"),
+      },
+    
+    ]
+
+    const onPress = () => {
+      transitionRef.current.animateNextTransition();
+    }
+
+  const renderItem = ({item}) => {
+      return (
+          <CardItens dados={item} onPress={onPress}/>
+      )
   }
+  
 
   return (
     <Background>
+      <StatusBar barStyle="light-content"></StatusBar>
       <Container style={{ shadowColor: "#454D65", shadowOffset: { height: 5 }, shadowRadius: 15, 
       shadowOpacity: 0.2, zIndex: 10}}>
-        <Text style={{fontSize: 20, fontWeight: "500", color: "#161F3D"}}>Feed</Text>
+        <Text style={{fontSize: 20, fontWeight: "500", color: "#fff"}}>Feed</Text>
       </Container>
 
-      <PostList
-        data={posts}
-        renderItem={({ item }) => this.renderPost(item)}
-        keyExtractor={item => item.id}
-        showsVerticalScrollIndicator={false}
-      ></PostList>
+      <FlatConainer>
+        <Transitioning.View ref={transitionRef} transition={transition} 
+        style={{ flex: 1 }}>
+          <FlatList
+          data={feed}
+          keyExtractor={(item, index) => `${item.id}${index}`}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+          />
+        </Transitioning.View>
+      </FlatConainer>
     </Background>
 
 )};

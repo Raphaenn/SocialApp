@@ -11,12 +11,12 @@ export function* SignIn({ payload }) {
   try {
       const response = yield firebase.auth().signInWithEmailAndPassword(email, password);
 
-      const { uid } = response.user
+      const { uid } = response.user;
 
-      yield put(signInSuccess(email, uid))
+      yield put(signInSuccess(email, uid));
 
     } catch(err) {
-      Alert.alert(err.message)
+      Alert.alert(err.message);
       yield put(signFailure());
     }
 };
