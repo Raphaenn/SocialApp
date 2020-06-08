@@ -7,9 +7,8 @@ import { Transitioning, Transition } from 'react-native-reanimated';
 
 import Background from "../../components/background";
 import { Container, FlatConainer } from './styles';
+import DatePicket from "../../components/DateSlider";
 import CardItens from "../../components/CardItens";
-
-// Avatar, Name, TextTime, FeedText, ImagePost 
 
 export default function Home() {
 
@@ -73,8 +72,10 @@ export default function Home() {
       <StatusBar barStyle="light-content"></StatusBar>
       <Container style={{ shadowColor: "#454D65", shadowOffset: { height: 5 }, shadowRadius: 15, 
       shadowOpacity: 0.2, zIndex: 10}}>
-        <Text style={{fontSize: 20, fontWeight: "500", color: "#fff"}}>Feed</Text>
+        <Text style={{fontSize: 22, fontWeight: "400", color: "#fff"}}>Feed</Text>
       </Container>
+
+      <DatePicket />
 
       <FlatConainer>
         <Transitioning.View ref={transitionRef} transition={transition} 

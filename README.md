@@ -54,11 +54,14 @@ $ git clone https://github.com/raphaenn/SocialApp
 # Go into the repository
 $ cd react-socialapp
 
+# Create a firebase account
+$ Copy your keys from your firebase console to FireConfig.js
+
 # Install dependencies
 $ yarn install
 
 # Run the app
-react-native run-ios
+$ react-native run-ios
 ```
 
 ## :memo: License
