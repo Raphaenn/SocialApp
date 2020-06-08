@@ -5,7 +5,7 @@
 </h1>
 
 <h4 align="center">
-  An application to self evaluate our day. <a href="/">iJournal</a>
+  An application to self evaluate our day.
 </h4>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/raphaenn/SocialApp.svg">
@@ -54,11 +54,14 @@ $ git clone https://github.com/raphaenn/SocialApp
 # Go into the repository
 $ cd react-socialapp
 
+# Create a firebase account
+$ Copy your keys from your firebase console to FireConfig.js
+
 # Install dependencies
 $ yarn install
 
 # Run the app
-react-native run-ios
+$ react-native run-ios
 ```
 
 ## :memo: License

@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 import LinearGradient from "react-native-linear-gradient";
 import { TouchableWithoutFeedback } from "react-native";
-import { FlatList } from 'react-native-gesture-handler';
 
 export const Container = styled(LinearGradient).attrs({
     colors: ['#F07B3F', '#EA5455'],
@@ -15,11 +14,6 @@ export const Container = styled(LinearGradient).attrs({
     justify-content: center;
     /* border-bottom-width: 1px; */
     border-bottom-color: #EBECF4;
-`;
-
-export const PostList = styled(FlatList)`
-    margin: 16px;
-    align-self: center;
 `;
 
 export const FeedItem = styled(TouchableWithoutFeedback)`
