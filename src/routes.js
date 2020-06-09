@@ -23,13 +23,13 @@ export default (signed = false) => createAppContainer(
             Home: {
               screen: Home,
               navigationOptions: {
-              tabBarIcon: ({ tintColor }) => <Icon name="ios-home" size={24} color={tintColor} />
+              tabBarIcon: ({ tintColor }) => <Icon name="ios-home" size={28} color={tintColor} />
               },
             },
             Dash: {
                 screen: Dash,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Icon name="ios-chatboxes" size={24} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Icon name="ios-podium" size={28} color={tintColor} />
                 }
             },
             Post: {
@@ -53,13 +53,13 @@ export default (signed = false) => createAppContainer(
             Notifications: {
                 screen: Notifications,
                 navigationOptions: {
-                  tabBarIcon: ({ tintColor }) => <Icon name="ios-notifications" size={24} color={tintColor} />
+                  tabBarIcon: ({ tintColor }) => <Icon name="ios-notifications" size={28} color={tintColor} />
                   }
             },
             Profile: {
                 screen: Profile,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Icon name="ios-person" size={24} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Icon name="ios-settings" size={28} color={tintColor} />
                 }
             }
         },

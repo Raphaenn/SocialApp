@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="React GitHub Repo List" src="https://upload-dezcontao.s3.us-east-2.amazonaws.com/socialapp.png" />
+    <img alt="React GitHub Repo List" src="https://upload-dezcontao.s3.us-east-2.amazonaws.com/ScreenShotApp.png" />
     <br>
     iJournal
 </h1>

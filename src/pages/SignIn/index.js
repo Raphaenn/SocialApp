@@ -15,7 +15,6 @@ export default function SignIn({ navigation }) {
 
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ authenticate, setAuthenticate ] = useState(false);
   const loading = useSelector(state => state.auth.loading);
   const dispatch = useDispatch();
 
@@ -76,8 +75,6 @@ export default function SignIn({ navigation }) {
             </LogButton2>
 
         </Form>
-
-        { authenticate ? <Text>Foi</Text> : null }
 
     </Container>
 )};

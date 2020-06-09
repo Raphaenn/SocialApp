@@ -1,7 +1,7 @@
 //Responsável por receber o Component CardItem, passando os itens do feed como parametros. Depois de receber o CardItem, apenas o carrego dentro de uma view Transition, que é responsável por chamar ref e a transition animation para a flatlist
 
 import React, { useRef } from 'react';
-import { View, Text, FlatList, StatusBar } from "react-native";
+import { View, Text, FlatList, StatusBar, Image } from "react-native";
 import moment from "moment";
 import { Transitioning, Transition } from 'react-native-reanimated';
 
