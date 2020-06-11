@@ -83,7 +83,7 @@ export const FormContent2 = styled.View`
     height: 150px;
     margin: 20px 20px 0 20px;
     align-items: center;
-    background: #003049;
+    /* background: #003049; */
     border-radius: 5px;
 `;
 
@@ -91,18 +91,18 @@ export const HoursDiv = styled.View`
     flex-direction: column;
     margin-top: 15px;
     flex-wrap: wrap;
-    max-height: 85px;
+    max-height: 90px;
     justify-content: space-between;
     align-items: center;
 `;
 
 export const InputHours = styled.TextInput`
-    width: 80px;
-    height: 35px;
+    width: 120px;
+    height: 40px;
     margin-left: 20px;
     background: #fff;
     border-radius: 5px;
-    padding-left: 10px;
+    padding-left: 30px;
     font-weight: 400;
 `;
 
@@ -114,4 +114,14 @@ export const FormContent3 = styled.View`
 export const FormContent4 = styled.View`
     margin: 20px 20px 0 20px;
     align-items: center;
-`
+`;
+
+export const ShowNote = styled.View`
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    margin: 0 5px 0 5px;
+    border-radius: 5px;
+`;

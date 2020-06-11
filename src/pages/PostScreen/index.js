@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
+import Slider from '@react-native-community/slider';
 
 import Background from "../../components/background";
-import { Container, Top, Title, SubContainer, SubTitle, Art, FormContainer, Form, ButtonView, EnterDay, FormContent, InputNote, FormContent2, HoursDiv, InputHours, FormContent3, FormContent4 } from './styles';
+import { Top, Title, SubContainer, SubTitle, Art, FormContainer, Form, ButtonView, EnterDay, FormContent, InputNote, FormContent2, HoursDiv, InputHours, FormContent3, FormContent4, ShowNote } from './styles';
 import Art1 from "../../assets/Illustrate/Art1.png"
 
 function PostScreen() {
+
+  const [ dayRate, setDayRate ] = useState(0);
+
   return (
     <Background>
       <Top>
@@ -38,7 +42,7 @@ function PostScreen() {
           </FormContent>
 
           <FormContent2>
-            <Text style={{ marginTop: 10, fontSize: 22, color: "#fff", fontWeight: '300' }} >Spend Hours</Text>
+            <Text style={{ marginTop: 10, fontSize: 22, color: "#fff", fontWeight: 'bold' }} >Spend Hours</Text>
             <HoursDiv>
               <InputHours placeholder={"Working"} 
             placeholderTextColor="rgba(45, 64, 80, .8)"/>
@@ -64,7 +68,22 @@ function PostScreen() {
           </FormContent3>
 
           <FormContent4>
-          <Text style={{ fontSize: 22, color: '#2D4059' }}>───  Rate your day ───</Text>
+          <Text style={{ fontSize: 22, color: '#2D4059' }}>Rate your day</Text>
+
+          <View style={{ flexDirection: 'row', marginTop: 10 }}>
+            {/* <ShowNote><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>1</Text></ShowNote> */}
+            <Slider 
+              style={{width: 200, height: 40}}
+              minimumValue={0}
+              maximumValue={10}
+              minimumTrackTintColor="rgba(255, 0, 89, .6)"
+              maximumTrackTintColor="rgba(45, 64, 89, .6)"
+              thumbTintColor="#fff"
+              step={0.5}
+              onValueChange={setDayRate}
+            />
+            <ShowNote><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2D4059' }}>{dayRate}</Text></ShowNote>
+          </View>
           </FormContent4>
         </Form>
       </FormContainer>
