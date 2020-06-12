@@ -6,7 +6,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 import Home from "./pages/Home";
 import Dash from "./pages/Dash";
-import Notifications from "./pages/Notifications";
+import Control from "./pages/Control";
 import Profile from "./pages/Profile";
 import PostScreen from "./pages/PostScreen";
 
@@ -29,7 +29,7 @@ export default (signed = false) => createAppContainer(
             Dash: {
                 screen: Dash,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Icon name="ios-podium" size={28} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Icon name="ios-keypad" size={28} color={tintColor} />
                 }
             },
             Post: {
@@ -39,9 +39,9 @@ export default (signed = false) => createAppContainer(
                         <Icon
                             name="ios-add-circle"
                             size={48}
-                            color="#E9446A"
+                            color="#F07B3F"
                             style={{
-                                shadowColor: "#E9446A",
+                                shadowColor: "#EA5455",
                                 shadowOffset: { width: 0, height: 10 },
                                 shadowRadius: 10,
                                 shadowOpacity: 0.3
@@ -50,10 +50,10 @@ export default (signed = false) => createAppContainer(
                     )
                 }
             },
-            Notifications: {
-                screen: Notifications,
+            Control: {
+                screen: Control,
                 navigationOptions: {
-                  tabBarIcon: ({ tintColor }) => <Icon name="ios-notifications" size={28} color={tintColor} />
+                  tabBarIcon: ({ tintColor }) => <Icon name="ios-stats" size={28} color={tintColor} />
                   }
             },
             Profile: {
