@@ -66,12 +66,34 @@ export const ChartView = styled.View`
 `;
 
 export const Chart = styled.View`
+    flex: 1;
     background: red;
+`;
+
+export const TextChartView = styled.View`
+    margin: 20px 10px 10px 20px;
+    /* background: red; */
+`;
+
+export const Column = styled.View`
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0px 10px 0px;
+    max-height: 30px;
+    max-width: 200px;
+    opacity: .8;
 `;
 
 export const ChartText = styled.Text`
     font-size: 20px;
     color: #003049;
     font-weight: 300;
-    margin-top: 10px;
+    margin-left: 10px;
+    width: 180px;
+`;
+
+export const ChartText2 = styled.Text`
+    font-size: 18px;
+    color: #003049;
+    font-weight: 500;
 `;

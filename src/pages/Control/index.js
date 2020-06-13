@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import Background from "../../components/background";
-import { Top, Title, SubContainer, SubTitle, Art, ContentContainer, ViewButton, SelectDateButton, ChartContainer, ChartView, Chart, ChartText } from './styles';
+import { Top, Title, SubContainer, SubTitle, Art, ContentContainer, ViewButton, SelectDateButton, ChartContainer, ChartView, Chart, TextChartView, Column, ChartText, ChartText2 } from './styles';
 import Chartart from "../../assets/ChartArt/Chartart.png";
 
 export default function Control() {
@@ -38,12 +38,31 @@ export default function Control() {
             </Chart>
 
             {/* Text chart */}
-            <View>
-              <ChartText>Work hours</ChartText>
-              <ChartText>Study hours</ChartText>
-              <ChartText>Leisure hours</ChartText>
-              <ChartText>Sleep hours</ChartText>
-            </View>
+            <TextChartView>
+              <Column>
+                <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#6F52ED' }}></View>
+                <ChartText>Work hours</ChartText>
+                <ChartText2>20 (30%)</ChartText2>
+              </Column>
+
+              <Column>
+                <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#FFB800' }}></View>
+                <ChartText>Study hours</ChartText>
+                <ChartText2>20 (30%)</ChartText2>
+              </Column>
+
+              <Column>
+                <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#FF4C61' }}></View>
+                <ChartText>Leisure hours</ChartText>
+                <ChartText2>20 (30%)</ChartText2>
+              </Column>
+
+              <Column>
+                <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#33D69F' }}></View>
+                <ChartText>Sleep hours</ChartText>
+                <ChartText2>20 (30%)</ChartText2>
+              </Column>
+            </TextChartView>
 
           </ChartView>
 
