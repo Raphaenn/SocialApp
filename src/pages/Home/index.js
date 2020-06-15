@@ -72,7 +72,7 @@ export default function Home() {
       <StatusBar barStyle="light-content"></StatusBar>
       <Container style={{ shadowColor: "#454D65", shadowOffset: { height: 5 }, shadowRadius: 15, 
       shadowOpacity: 0.2, zIndex: 10}}>
-        <Text style={{fontSize: 22, fontWeight: "400", color: "#fff"}}>Feed</Text>
+        <Text style={{fontSize: 22, fontWeight: "bold", color: "#fff"}}>Feed</Text>
       </Container>
 
       <DatePicket />

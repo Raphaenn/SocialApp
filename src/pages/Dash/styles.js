@@ -1,9 +1,7 @@
 import styled from 'styled-components/native';
-import LinearGradient from "react-native-linear-gradient";
-import { StyleSheet, Animated, TouchableOpacity } from "react-native";
 
 export const ContainerTop = styled.View`
-    padding-top: 64px;
+    margin-top: 12%;
     padding-bottom: 16px;
     align-items: center;
     justify-content: center;
@@ -19,7 +17,9 @@ export const Title = styled.Text`
 export const SubTitle = styled.Text`
     text-align: center;
     margin-top: 30px;
-    font-size: 22px;
+    font-size: 20px;
+    /* align-self: center; */
+    width: 82%;
     font-weight: 300;
     color: #fff;
 `;
@@ -55,32 +55,32 @@ export const QuarterContainer = styled.View`
 export const GridContainer1 = styled.View`
     /* background:red; */
     align-items: center;
-    width: 150px;
-    height: 150px;  
+    width: 35%;
+    height: 35%;  
     margin: 10px;
 `;
 
 export const GridContainer2 = styled.View`
     /* background:red;   */
     align-items: center;
-    width: 150px;
-    height: 150px;  
+    width: 35%;
+    height: 35%;  
     margin: 10px;
 `;
 
 export const GridContainer3 = styled.View`
     /* background:red; */
     align-items: center;
-    width: 150px;
-    height: 150px;  
+    width: 35%;
+    height: 35%;  
     margin: 10px;
 `;
 
 export const GridContainer4 = styled.View`
     /* background:red; */
     align-items: center;
-    width: 150px;
-    height: 150px;  
+    width: 35%;
+    height: 35%;  
     margin: 10px;
 `;
 
@@ -90,14 +90,15 @@ export const Icon = styled.Image`
 `;
 
 export const GradeText = styled.Text`
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
     color: #fff;
+    margin-top: 5px;
 `; 
 
 export const CatText = styled.Text`
     margin-top: 5px;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     font-weight: 300;
     color: #fff;
