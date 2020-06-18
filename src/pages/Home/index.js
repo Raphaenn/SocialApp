@@ -1,7 +1,9 @@
 //Responsável por receber o Component CardItem, passando os itens do feed como parametros. Depois de receber o CardItem, apenas o carrego dentro de uma view Transition, que é responsável por chamar ref e a transition animation para a flatlist
 
-import React, { useRef } from 'react';
-import { View, Text, FlatList, StatusBar, Image } from "react-native";
+import React, { useRef, useEffect, useState } from 'react';
+import { Text, FlatList, StatusBar, Image } from "react-native";
+import { useSelector } from "react-redux";
+import firebase from "react-native-firebase";
 import moment from "moment";
 import { Transitioning, Transition } from 'react-native-reanimated';
 
@@ -12,6 +14,9 @@ import CardItens from "../../components/CardItens";
 
 export default function Home() {
 
+  const arrays = [];
+  const authId = useSelector(state => state.auth.uid);
+  const [ userData, setUserData ] = useState([]);
   feed = [
     {
       id: "1",
@@ -50,6 +55,21 @@ export default function Home() {
       avatar: require("../../assets/tempAvatar.jpg"),
     },
   ]
+
+  useEffect(() => {
+    async function ShowData() {
+      await firebase.firestore().collection('Posts').where('UserID', '==', authId).get()
+      .then((querySnapshot) => {
+        var arrays = [];
+        querySnapshot.forEach(doc => {
+          arrays.push(doc.data())
+        })
+        setUserData(arrays)
+    })
+    }
+    ShowData()
+  }, []);
+
 
   const transitionRef = useRef();
   const transition = <Transition.Together propagation='bottom'>

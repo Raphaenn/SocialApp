@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 
 export const Top = styled.View`
     margin-top: 12%;
@@ -39,6 +39,7 @@ export const Art = styled.Image`
 
 export const FormContainer = styled.View`
     flex: 1;
+    background: red;
 `;
 
 export const Form = styled.View`
@@ -58,10 +59,21 @@ export const ButtonView = styled.View`
 export const EnterDay = styled(TouchableOpacity)`
     width: 48%;
     height: 45px;
-    background: #003049;
     border-radius: 5px;
     align-items: center;
     justify-content: center;
+
+    background: ${props => props.ativoT ? '#adb5bd' : '#2a9d8f'};
+`;
+
+export const EnterDay2 = styled(TouchableOpacity)`
+    width: 48%;
+    height: 45px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+
+    background: ${props => props.ativoY ? '#adb5bd' : '#2a9d8f'};
 `;
 
 export const FormContent = styled.View`
@@ -124,4 +136,15 @@ export const ShowNote = styled.View`
     height: 40px;
     margin: 0 5px 0 5px;
     border-radius: 5px;
+`;
+
+export const SubmitButtom = styled(TouchableOpacity)`
+    background: #43aa8b;
+    margin-top: 30px;
+    align-self: center;
+    border-radius: 30px;
+    width: 40%;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
 `;
