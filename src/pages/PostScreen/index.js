@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { withNavigationFocus } from "react-navigation";
 import moment from "moment";
 import { View, Text } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view' //best kb lib
@@ -11,13 +12,9 @@ import Background from "../../components/background";
 import Art1 from "../../assets/Illustrate/Art1.png"
 import { Top, Title, Container, SubContainer, SubTitle, Art, Form, ButtonView, EnterDay, EnterDay2, FormContent, InputNote, FormContent2, HoursDiv, InputHours, FormContent3, FormContent4, ShowNote, SubmitButtom } from './styles';
 
-function PostScreen({ navigation }) {
+export default function PostScreen({ navigation }) {
 
   const dispatch = useDispatch();
-
-  // Pegar as datas de hoje e ontem Assim, passarei elas como parametro das minhas funções SelectToday e 
-  // yesterdaySel. Apois isso, a função recebe esse dado e joga dentro do datapost do usestate form.
-  // Preciso trocar a cor das teclas tbm.
   const nowDate = moment().format('L');
   const YesDate = moment().subtract(1, 'days').format('L')
   const authId = useSelector(state => state.auth.uid);
@@ -38,6 +35,7 @@ function PostScreen({ navigation }) {
     studytime: "",
   });
 
+  const thansk1ref = useRef();
   const thansk2ref = useRef();
   const thansk3ref = useRef();
   const act1ref = useRef();
@@ -48,9 +46,21 @@ function PostScreen({ navigation }) {
   const studyref = useRef();
   const sleepref = useRef();
 
+
   function handleSend() {
     if(form.act1.length > 0 && form.studytime.length > 0) {
       dispatch(PostRequest(form, navigation));
+      thansk1ref.current.clear()
+      thansk2ref.current.clear()
+      thansk3ref.current.clear()
+      act1ref.current.clear()
+      act2ref.current.clear()
+      act3ref.current.clear()
+      leisureref.current.clear()
+      workref.current.clear()
+      studyref.current.clear()
+      sleepref.current.clear()
+      
     }
   };
 
@@ -111,12 +121,14 @@ function PostScreen({ navigation }) {
           <FormContent>
             <Text style={{ fontSize: 22, color: '#2D4059' }}>──  Gratitude Journal ──</Text>
             <InputNote placeholder={"I'm thankful for..."} 
+            ref={thansk1ref}
             placeholderTextColor="rgba(45, 64, 80, .8)" 
             onChangeText={thanks1 => setForm({ ...form, thanks1 })}
             value={form.thanks1}
             returnKeyType="next"
             onSubmitEditing={() => thansk2ref.current.focus() }
             maxLength={80}
+            clearButtonMode="always"
             />
 
             <InputNote placeholder={"I'm thankful for..."} 
@@ -127,6 +139,7 @@ function PostScreen({ navigation }) {
             onSubmitEditing={() => thansk3ref.current.focus() }
             ref={thansk2ref}
             maxLength={80}
+            clearButtonMode="always"
             />
 
             <InputNote placeholder={"I'm thankful for..."} 
@@ -137,6 +150,7 @@ function PostScreen({ navigation }) {
             onSubmitEditing={() => workref.current.focus() }
             ref={thansk3ref}
             maxLength={80}
+            clearButtonMode="always"
             />
           </FormContent>
 
@@ -196,6 +210,7 @@ function PostScreen({ navigation }) {
               onSubmitEditing={() => act2ref.current.focus() }
               ref={act1ref}
               maxLength={80}
+              clearButtonMode="always"
               />
 
               <InputNote placeholder={"II- Important task."} 
@@ -206,6 +221,7 @@ function PostScreen({ navigation }) {
               onSubmitEditing={() => act3ref.current.focus() }
               ref={act2ref}
               maxLength={80}
+              clearButtonMode="always"
               />
 
               <InputNote placeholder={"III- Important task."} 
@@ -215,6 +231,7 @@ function PostScreen({ navigation }) {
               returnKeyType="next"
               ref={act3ref}
               maxLength={80}
+              clearButtonMode="always"
               />
           </FormContent3>
 
@@ -240,12 +257,10 @@ function PostScreen({ navigation }) {
           </FormContent4>
           <SubmitButtom onPress={handleSend}>
             <Text style={{ color: "#FFF", fontWeight: "500" }}>Post</Text>
-            </SubmitButtom>
+          </SubmitButtom>
         </Form>
       </Container>
       </KeyboardAwareScrollView>
     </Background>
   )
 }
-
-export default PostScreen;

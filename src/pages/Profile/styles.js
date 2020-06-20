@@ -61,7 +61,7 @@ export const ButtomView = styled.View`
     width: 300px;
 `
 
-export const ChangeButtom = styled.View`
+export const ChangeButtom = styled(TouchableOpacity)`
     background: #33D69F;
     margin-left: 20px;
     border-radius: 4px;
@@ -71,7 +71,7 @@ export const ChangeButtom = styled.View`
     justify-content: center;
 `;
 
-export const LogoutButtom = styled.View`
+export const LogoutButtom = styled(TouchableOpacity)`
     background: #F5374E;
     margin-right: 20px;
     border-radius: 4px;

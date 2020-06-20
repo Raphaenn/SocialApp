@@ -41,7 +41,7 @@ export const TextID = styled.Text`
 `;
 
 export const TextDay = styled.Text`
-    margin-left: -50px;
+    margin-left: -40px;
     color: #CBBBBB;
     font-size: 16px;
 `;
@@ -75,6 +75,7 @@ export const ColumnView = styled.View`
     align-items: center;
     margin: 0px 0px 10px 0px;
     max-height: 30px;
+    width: 200px;
     max-width: 200px;
 `;
 

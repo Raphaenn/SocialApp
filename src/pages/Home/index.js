@@ -1,10 +1,10 @@
 //Responsável por receber o Component CardItem, passando os itens do feed como parametros. Depois de receber o CardItem, apenas o carrego dentro de uma view Transition, que é responsável por chamar ref e a transition animation para a flatlist
 
 import React, { useRef, useEffect, useState } from 'react';
-import { Text, FlatList, StatusBar, Image } from "react-native";
+import { Text, FlatList, StatusBar } from "react-native";
 import { useSelector } from "react-redux";
+import { withNavigationFocus } from "react-navigation";
 import firebase from "react-native-firebase";
-import moment from "moment";
 import { Transitioning, Transition } from 'react-native-reanimated';
 
 import Background from "../../components/background";
@@ -12,9 +12,8 @@ import { Container, FlatConainer } from './styles';
 import DatePicket from "../../components/DateSlider";
 import CardItens from "../../components/CardItens";
 
-export default function Home() {
+  function Home({isFocused}) {
 
-  const arrays = [];
   const authId = useSelector(state => state.auth.uid);
   const [ userData, setUserData ] = useState([]);
   feed = [
@@ -56,20 +55,22 @@ export default function Home() {
     },
   ]
 
-  useEffect(() => {
-    async function ShowData() {
-      await firebase.firestore().collection('Posts').where('UserID', '==', authId).get()
-      .then((querySnapshot) => {
-        var arrays = [];
-        querySnapshot.forEach(doc => {
-          arrays.push(doc.data())
-        })
-        setUserData(arrays)
-    })
-    }
-    ShowData()
-  }, []);
+  async function loadData() {
+    await firebase.firestore().collection('Posts').where('UserID', '==', authId).get()
+    .then((querySnapshot) => {
+      var arrays = [];
+      querySnapshot.forEach(doc => {
+        arrays.push(doc.data())
+      })
+      setUserData(arrays)
+  })
+  };
 
+  useEffect(() => {
+    if (isFocused) {
+      loadData()
+    }
+}, [isFocused]);
 
   const transitionRef = useRef();
   const transition = <Transition.Together propagation='bottom'>
@@ -78,14 +79,13 @@ export default function Home() {
 
     const onPress = () => {
       transitionRef.current.animateNextTransition();
-    }
+    };
 
   const renderItem = ({item}) => {
       return (
-          <CardItens dados={item} onPress={onPress}/>
+        <CardItens dados={item} onPress={onPress}/>
       )
-  }
-  
+  };
 
   return (
     <Background>
@@ -97,11 +97,13 @@ export default function Home() {
 
       <DatePicket />
 
+      {console.tron.log(userData)}
+
       <FlatConainer>
         <Transitioning.View ref={transitionRef} transition={transition} 
         style={{ flex: 1 }}>
           <FlatList
-          data={feed}
+          data={userData}
           keyExtractor={(item, index) => `${item.id}${index}`}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
@@ -111,3 +113,5 @@ export default function Home() {
     </Background>
 
 )};
+
+export default withNavigationFocus(Home);

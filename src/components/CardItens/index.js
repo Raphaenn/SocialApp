@@ -24,10 +24,10 @@ export default function CardItens({dados, onPress}) {
         <View style={{ flex: 1 }}>
           <View style={{ flexDirection: "column", justifyContent: "space-between", alignItems: "center" }}>
             <View style={{ marginBottom: 25, marginTop: 20 }}>
-              <TextID>{dados.id}</TextID>
+              <TextID>1</TextID>
             </View>
 
-            <TextDay>Today</TextDay>
+            <TextDay>{moment(dados.datapost).fromNow(true)}</TextDay>
             <TextHour>06:00 PM</TextHour>
           </View>
         </View>
@@ -41,17 +41,17 @@ export default function CardItens({dados, onPress}) {
                   <ColumnView>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text numberOfLines={1} style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Activ1}</Text>
+                    {dados.act1}</Text>
                   </ColumnView>
                   <ColumnView>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text numberOfLines={1} style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Activ2}</Text>
+                    {dados.act2}</Text>
                   </ColumnView>
                   <ColumnView>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text numberOfLines={1} style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Activ3}</Text>
+                    {dados.act3}</Text>
                   </ColumnView>
                 </ContentView>
               </RightInside>
@@ -61,7 +61,7 @@ export default function CardItens({dados, onPress}) {
       :
       <FeedContainer2>
         <Top>
-          <TextIDE>{dados.id}</TextIDE>
+          <TextIDE>2</TextIDE>
           <TextDayE>Today</TextDayE>
           <Avatar>
             <Image style={{width: 38, height: 38, borderRadius: 19}} source={dados.avatar} resizeMode="cover" />
@@ -74,17 +74,17 @@ export default function CardItens({dados, onPress}) {
                 <ColumnViewE>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Activ1}</Text>
+                    {dados.act1}</Text>
                   </ColumnViewE>
                   <ColumnViewE>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Activ2}</Text>
+                    {dados.act2}</Text>
                   </ColumnViewE>
                   <ColumnViewE>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Activ3}</Text>
+                    {dados.act3}</Text>
                   </ColumnViewE>    
               </ContentViewE>
           </ContentTop>
@@ -95,19 +95,19 @@ export default function CardItens({dados, onPress}) {
               <ColumnView2>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Gratidao1}
+                    {dados.thanks1}
                     </Text>
                   </ColumnView2>
                   <ColumnView2>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Gratidao2}
+                    {dados.thanks2}
                     </Text>
                   </ColumnView2>
                   <ColumnView2>
                     <Icon name="ios-radio-button-on" size={14} color="#F07B3F" />
                     <Text style={{color: "#2D4059", marginLeft: 10}}>
-                    {dados.Gratidao3}
+                    {dados.thanks3}
                     </Text>
                   </ColumnView2>
               </ContentViewBottom>

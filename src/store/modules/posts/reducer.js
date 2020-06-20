@@ -1,15 +1,15 @@
 import produce from "immer"
 
 const INITIAL_STATE = {
-    allposts: null
+    allposts: null,
 }
 
-export default function Post(state = INITIAL_STATE, action) {
+export default function posts(state = INITIAL_STATE, action) {
     switch(action.type) {
         case "@post/POST_REQUEST": 
-        return produce(state, draft => {
-            draft.allposts = action.payload
-        })
+            return produce(state, draft => {
+                draft.allposts = action.payload
+            })
         default:
         return state
     }

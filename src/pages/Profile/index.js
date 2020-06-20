@@ -45,7 +45,7 @@ export default function Profile() {
 
           <ButtomView>
             <ChangeButtom><Text style={{ color: "#FFF", fontWeight: "500" }}>Save Changes</Text></ChangeButtom>
-            <LogoutButtom onPress={()=> LogOut()}><Text style={{ color: "#FFF", fontWeight: "500" }}>Logout</Text></LogoutButtom>
+            <LogoutButtom onPress={LogOut}><Text style={{ color: "#FFF", fontWeight: "500" }}>Logout</Text></LogoutButtom>
           </ButtomView>
         </FormView>
       </Container>
