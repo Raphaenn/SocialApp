@@ -2,10 +2,12 @@ import React, { useEffect , useState } from 'react';
 
 import { CalendarContainer, DateSlider, DateButtom, TextName, TextDay, Daymark } from './styles';
 
-export default function DatePicket() {
+export default function DatePicket({datafilter}) {
 
     const [ dateList, setDateList ] = useState([]);
     const today = new Date();
+    const [ active, setActive ] = useState(false);
+    const [ dia, setDia ] = useState('');
 
     useEffect(() => {
         //Está função tem o objetivo de, através do while, gerar um objeto com os dias do mês atual do ano vigente.
@@ -35,7 +37,12 @@ export default function DatePicket() {
     }, []);
 
     function handleSelect(item) {
-      console.tron.log(item.day)
+      datafilter(item.day)
+    }
+
+    function handleActive(item) {
+      setActive(!active)
+      setDia(item)
     }
 
     return (
@@ -47,7 +54,7 @@ export default function DatePicket() {
               keyExtractor={item => item.id}
               renderItem={({item}) => {
                 return (
-                  <DateButtom onPress={() => handleSelect(item)}>
+                  <DateButtom onPress={() => handleSelect(item) + handleActive(item.day)} press={dia == item.day ? true : null}>
                     <TextName>{item.name}</TextName>
                     <Daymark activeNow={ item.day == today.getDate() ? true : null } >
                     <TextDay>{item.day}</TextDay>

@@ -18,6 +18,8 @@ export const DateButtom = styled(TouchableOpacity)`
     width: 40px;
     border-radius: 40px;
     align-items: center;
+
+    background: ${props => props.press ? 'rgba(229, 229, 229, 0.3)' : 'rgba(255, 255, 255, 0)'};
 `;
 
 export const TextName = styled.Text`

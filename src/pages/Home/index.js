@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Text, FlatList, StatusBar } from "react-native";
 import { useSelector } from "react-redux";
 import { withNavigationFocus } from "react-navigation";
+import moment from "moment";
 import firebase from "react-native-firebase";
 import { Transitioning, Transition } from 'react-native-reanimated';
 
@@ -16,6 +17,8 @@ import CardItens from "../../components/CardItens";
 
   const authId = useSelector(state => state.auth.uid);
   const [ userData, setUserData ] = useState([]);
+  const [ filterDay, setFilterDay ] = useState('');
+  const [ showFilter, setShowFilter ] = useState([]);
   feed = [
     {
       id: "1",
@@ -62,7 +65,7 @@ import CardItens from "../../components/CardItens";
       querySnapshot.forEach(doc => {
         arrays.push(doc.data())
       })
-      setUserData(arrays)
+      setUserData(arrays);
   })
   };
 
@@ -87,6 +90,11 @@ import CardItens from "../../components/CardItens";
       )
   };
 
+  const filterdate = (datenum) => {
+    // setFilterDay(datenum)
+    setShowFilter(userData.filter((el, i) => moment(el.datapost).format('D') == datenum))
+  }
+
   return (
     <Background>
       <StatusBar barStyle="light-content"></StatusBar>
@@ -95,15 +103,13 @@ import CardItens from "../../components/CardItens";
         <Text style={{fontSize: 22, fontWeight: "bold", color: "#fff"}}>Feed</Text>
       </Container>
 
-      <DatePicket />
-
-      {console.tron.log(userData)}
+      <DatePicket datafilter={filterdate}/>
 
       <FlatConainer>
         <Transitioning.View ref={transitionRef} transition={transition} 
         style={{ flex: 1 }}>
           <FlatList
-          data={userData}
+          data={showFilter.length > 0 ? showFilter : userData}
           keyExtractor={(item, index) => `${item.id}${index}`}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
