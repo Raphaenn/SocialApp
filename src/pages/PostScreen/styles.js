@@ -1,12 +1,8 @@
 import styled from 'styled-components/native';
-import { TouchableOpacity } from "react-native";
-
-export const Container = styled.View`
-    flex: 1;
-`;
+import { TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 
 export const Top = styled.View`
-    padding-top: 64px;
+    margin-top: 12%;
     align-items: center;
     justify-content: center;
     border-bottom-color: #EBECF4;
@@ -18,14 +14,21 @@ export const Title = styled.Text`
     color: #fff;
 `;
 
+export const Container = styled.ScrollView.attrs({
+    showsVerticalScrollIndicator: false,
+})`
+    flex: 1;
+`;
+
 export const SubContainer = styled.View`
     flex-direction: row;
+    align-self: center;
 `;
 
 export const SubTitle = styled.Text`
     text-align: center;
     margin-left: 15px;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 300;
     color: #fff;
 `;
@@ -34,11 +37,9 @@ export const Art = styled.Image`
     height: 180px;
 `;
 
-export const FormContainer = styled.ScrollView.attrs({
-    showsVerticalScrollIndicator: false,
-})`
+export const FormContainer = styled.View`
     flex: 1;
-
+    background: red;
 `;
 
 export const Form = styled.View`
@@ -56,12 +57,23 @@ export const ButtonView = styled.View`
 `;
 
 export const EnterDay = styled(TouchableOpacity)`
-    width: 160px;
+    width: 48%;
     height: 45px;
-    background: #003049;
     border-radius: 5px;
     align-items: center;
     justify-content: center;
+
+    background: ${props => props.ativoT ? '#adb5bd' : '#2a9d8f'};
+`;
+
+export const EnterDay2 = styled(TouchableOpacity)`
+    width: 48%;
+    height: 45px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+
+    background: ${props => props.ativoY ? '#adb5bd' : '#2a9d8f'};
 `;
 
 export const FormContent = styled.View`
@@ -124,4 +136,15 @@ export const ShowNote = styled.View`
     height: 40px;
     margin: 0 5px 0 5px;
     border-radius: 5px;
+`;
+
+export const SubmitButtom = styled(TouchableOpacity)`
+    background: #43aa8b;
+    margin-top: 30px;
+    align-self: center;
+    border-radius: 30px;
+    width: 40%;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
 `;

@@ -6,7 +6,7 @@ export const Container = styled(LinearGradient).attrs({
     start: { x: 0, y: 1 },
     end: { x: 1, y: 1 }
 })`
-    padding-top: 64px;
+    margin-top: 12%;
     padding-bottom: 16px;
     align-items: center;
     justify-content: center;

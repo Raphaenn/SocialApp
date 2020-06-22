@@ -76,6 +76,6 @@ export default (signed = false) => createAppContainer(
             }
         })
     }, {
-        initialRouteName: signed ? 'App' : 'Sign'
+        initialRouteName: signed ? 'App' : 'Sign',
     })
 );
