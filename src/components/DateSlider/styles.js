@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-import LinearGradient from "react-native-linear-gradient";
-import { StyleSheet, Animated, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 export const CalendarContainer = styled.View`
 `
@@ -18,6 +17,7 @@ export const DateButtom = styled(TouchableOpacity)`
     width: 40px;
     border-radius: 40px;
     align-items: center;
+    justify-content: center;
 
     background: ${props => props.press ? 'rgba(229, 229, 229, 0.3)' : 'rgba(255, 255, 255, 0)'};
 `;
@@ -27,6 +27,7 @@ export const TextName = styled.Text`
     font-size: 12px;
     font-weight: 400;
     color: #fff;
+    margin-top: 5px;
 `;
 
 export const TextDay = styled.Text`

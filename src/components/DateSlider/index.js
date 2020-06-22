@@ -54,7 +54,8 @@ export default function DatePicket({datafilter}) {
               keyExtractor={item => item.id}
               renderItem={({item}) => {
                 return (
-                  <DateButtom onPress={() => handleSelect(item) + handleActive(item.day)} press={dia == item.day ? true : null}>
+                  <DateButtom onPress={() => handleSelect(item) + handleActive(item.day)} 
+                  press={dia == item.day ? true : null}>
                     <TextName>{item.name}</TextName>
                     <Daymark activeNow={ item.day == today.getDate() ? true : null } >
                     <TextDay>{item.day}</TextDay>

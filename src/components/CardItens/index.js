@@ -27,7 +27,7 @@ export default function CardItens({dados, onPress}) {
               <TextID>1</TextID>
             </View>
 
-            <TextDay>{moment(dados.datapost).fromNow(true)}</TextDay>
+            <TextDay>{moment(Date.parse(dados.datapost)).fromNow(true)}</TextDay>
             <TextHour>06:00 PM</TextHour>
           </View>
         </View>

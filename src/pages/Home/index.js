@@ -92,7 +92,7 @@ import CardItens from "../../components/CardItens";
 
   const filterdate = (datenum) => {
     // setFilterDay(datenum)
-    setShowFilter(userData.filter((el, i) => moment(el.datapost).format('D') == datenum))
+    setShowFilter(userData.filter((el, i) => moment(Date.parse(el.datapost)).format('D') == datenum))
   }
 
   return (
