@@ -29,6 +29,7 @@ export default function PostScreen({ navigation }) {
     thanks2: "",
     thanks3: "",
     dayrate: 0,
+    worktime: "",
     leisuretime: "",
     sleeptime: "",
     studytime: "",

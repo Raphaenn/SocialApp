@@ -7,7 +7,7 @@ export function PostRequest(form, navigation) {
 };
 
 export function PostSuccess(form) {
-    return{
+    return {
         type: '@post/POST_SUCCESS',
         payload: { form }
     }

@@ -18,3 +18,9 @@ export const FlatConainer = styled.View`
     margin-top: 10px;
     align-items: center;
 `;
+
+export const GifContainer = styled.View`
+    align-items: center;
+    flex: 1;
+    padding-top: 80px;
+`;

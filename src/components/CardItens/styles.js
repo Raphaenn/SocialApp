@@ -41,9 +41,10 @@ export const TextID = styled.Text`
 `;
 
 export const TextDay = styled.Text`
-    margin-left: -40px;
+    margin-left: -5px;
     color: #CBBBBB;
     font-size: 16px;
+    width: 80px;
 `;
 
 export const TextHour = styled.Text`

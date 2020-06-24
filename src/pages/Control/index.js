@@ -1,27 +1,93 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from "react-redux";
+import { withNavigationFocus } from "react-navigation";
+import firebase from "react-native-firebase";
+import moment from "moment";
 import { View, Text } from 'react-native';
-import { VictoryBar, VictoryChart, VictoryTheme, VictoryPie } from "victory-native";
+import { VictoryPie } from "victory-native";
 import Svg, { Circle } from 'react-native-svg'
 
+import LoadData from "../../util/UserStats";
 import Background from "../../components/background";
 import { Top, Title, Container, SubContainer, SubTitle, Art, ContentContainer, ViewButton, SelectDateButton, ChartContainer, ChartView, Chart, TextChartView, Column, ChartText, ChartText2 } from './styles';
 import Chartart from "../../assets/ChartArt/Chartart.png";
 
-export default function Control() {
+function Control({isFocused}) {
 
-  const data = [
-    { x: 'work', y: 8 },
-    { x: 'study', y: 5 },
-    { x: 'leisure', y: 3 },
-    { x: 'sleep', y: 8 }
-  ];
+  const authId = useSelector(state => state.auth.uid);
+  const [ totalDate, setTotalDate ] = useState([]);
+  const [ activeButton, setActiveButton ] = useState(false);
+  const [ activeButton2, setActiveButton2 ] = useState(false);
+
+  async function loadNumber() {
+    await firebase.firestore().collection('Posts').where('UserID', '==', authId).get()
+    .then((querySnapshot) => {
+      var arrays = [];
+      querySnapshot.forEach(doc => {
+        arrays.push(doc.data())
+      });
+
+      const arrange = arrays.map(item => item);
+      const totalArray = new LoadData(arrange);
+      setTotalDate(arrange);
+      setData(totalArray.chartNumber());
+      setChartData(totalArray.chartSub());
+  })
+  };
+
+  useEffect(() => {
+    if (isFocused) {
+      loadNumber()
+    }
+}, [isFocused]);
+
+
+  const [ chartData, setChartData ] = useState([]);
+  const [ data, setData ] = useState([]);
+
+  function handleSelect(type) {
+    switch(type) {
+      case "Week":
+        if(!activeButton) {
+          const arrayweek = totalDate.filter((el, id) => moment(el.datapost, "MM-DD-YYYY").week() == moment(new Date(), "MM-DD-YYYY").week());
+          const weekFilter = new LoadData(arrayweek);
+          setData(weekFilter.chartNumber());
+          setChartData(weekFilter.chartSub());
+          setActiveButton(!activeButton);
+          } else {
+            const TotalFilter = new LoadData(totalDate);
+            setData(TotalFilter.chartNumber());
+            setChartData(TotalFilter.chartSub());
+            setActiveButton(!activeButton);
+          }
+        break;
+
+      case  "Month":
+        if(!activeButton2) {
+          const arraymonth = totalDate.filter((el, id) => moment(el.datapost, "MM-DD-YYYY").month() == moment(new Date(), "MM-DD-YYYY").month());
+          const monthFilter = new LoadData(arraymonth);
+          setData(monthFilter.chartNumber());
+          setChartData(monthFilter.chartSub());
+          setActiveButton2(!activeButton2);
+          } else {
+            const TotalFilter = new LoadData(totalDate);
+            setData(TotalFilter.chartNumber());
+            setChartData(TotalFilter.chartSub());
+            setActiveButton2(!activeButton2);
+          }
+        break;
+
+      default:
+        console.tron.log("Default")
+    }
+  }
+
   
   return (
     <Background>
       <Top>
         <Title>New SelfBack</Title>
       </Top>
-
       <Container>
       <SubContainer>
           <View style={{ marginRight: 5, alignItems: 'center', justifyContent: 'center', width: 240 }}>
@@ -34,8 +100,12 @@ export default function Control() {
 
         {/* Button Place */}
         <ViewButton>
-          <SelectDateButton><Text style={{color: 'rgba(0, 48, 73, .8)', fontSize: 20, fontWeight: '300'}}>Week</Text></SelectDateButton>
-          <SelectDateButton><Text style={{color: 'rgba(0, 48, 73, .8)', fontSize: 20, fontWeight: '300'}}>Month</Text></SelectDateButton>
+          <SelectDateButton  active={activeButton ? activeButton : null} onPress={() => handleSelect("Week")}>
+            <Text style={{color: 'rgba(0, 48, 73, .8)', fontSize: 20, fontWeight: '300'}}>Week</Text>
+          </SelectDateButton>
+          <SelectDateButton active={activeButton2 ? activeButton2 : null} onPress={() => handleSelect("Month")}>
+            <Text style={{color: 'rgba(0, 48, 73, .8)', fontSize: 20, fontWeight: '300'}}>Month</Text>
+          </SelectDateButton>
         </ViewButton>
 
         {/* Chart place */}
@@ -50,7 +120,7 @@ export default function Control() {
                 <Svg width={'auto'} height={230}>
                 <Circle cx={175} cy={125} r={40} fill="#F8F9FF"/>
                 <VictoryPie 
-                data={data} 
+                data={data}
                 height={250}
                 width={350}
                 // padding={90}
@@ -68,25 +138,25 @@ export default function Control() {
               <Column>
                 <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#6F52ED' }}></View>
                 <ChartText>Work hours</ChartText>
-                <ChartText2>20 (30%)</ChartText2>
+                <ChartText2>{chartData.y} (30%)</ChartText2>
               </Column>
 
               <Column>
                 <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#FFB800' }}></View>
                 <ChartText>Study hours</ChartText>
-                <ChartText2>20 (30%)</ChartText2>
+                <ChartText2>{chartData.k} (30%)</ChartText2>
               </Column>
 
               <Column>
                 <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#FF4C61' }}></View>
                 <ChartText>Leisure hours</ChartText>
-                <ChartText2>20 (30%)</ChartText2>
+                <ChartText2>{chartData.n} (30%)</ChartText2>
               </Column>
 
               <Column>
                 <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#33D69F' }}></View>
                 <ChartText>Sleep hours</ChartText>
-                <ChartText2>20 (30%)</ChartText2>
+                <ChartText2>{chartData.z} (30%)</ChartText2>
               </Column>
             </TextChartView>
 
@@ -99,3 +169,5 @@ export default function Control() {
     </Background>
   )
 }
+
+export default withNavigationFocus(Control);
