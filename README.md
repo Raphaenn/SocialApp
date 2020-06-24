@@ -1,5 +1,6 @@
 <h1 align="center">
-    <img alt="React GitHub Repo List" src="https://upload-dezcontao.s3.us-east-2.amazonaws.com/ScreenShotApp.png" />
+    <img width="300" alt="React GitHub Repo List" src="https://upload-dezcontao.s3.us-east-2.amazonaws.com/ScreenShotApp.png" />
+    <img width="300" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://upload-dezcontao.s3.us-east-2.amazonaws.com/Dash.png"><br><img width="300" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://upload-dezcontao.s3.us-east-2.amazonaws.com/Post.png"><img width="300" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://upload-dezcontao.s3.us-east-2.amazonaws.com/Chart.png">
     <br>
     iJournal
 </h1>
@@ -40,6 +41,7 @@ This project was developed by Raphael Neves with the following technologies:
 -  [styled-components](https://www.styled-components.com/)
 -  [React-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 -  [Reactotron](https://infinite.red/reactotron)
+-  [Victory](https://formidable.com/open-source/victory/)
 -  [moment](https://infinite.red/reactotron)
 -  [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 

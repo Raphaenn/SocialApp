@@ -6,7 +6,7 @@ export default reducers => {
         // key define qual aplicaçao vai usar a storage
         key: 'SocialMedia',
         storage: AsyncStorage,
-        whitelist: ['auth']
+        whitelist: ['auth', 'posts']
     },
     reducers
     );

@@ -2,7 +2,7 @@ import { takeLatest, put, all } from "redux-saga/effects";
 import firebase from "react-native-firebase";
 import { Alert } from "react-native";
 
-// import { PostRequest, PostSuccess } from "./actions";
+import { PostSuccess } from "./actions";
 
 export function* postIn({ payload, payload2 }) {
     const { form } = payload
@@ -12,6 +12,8 @@ export function* postIn({ payload, payload2 }) {
 
         const db = firebase.firestore().collection("Posts").doc();
         yield db.set(form);
+
+        yield put(PostSuccess(form));
 
         navigation.navigate('Home')
         
