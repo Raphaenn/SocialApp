@@ -82,7 +82,6 @@ function Control({isFocused}) {
     }
   }
 
-  
   return (
     <Background>
       <Top>
@@ -138,25 +137,33 @@ function Control({isFocused}) {
               <Column>
                 <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#6F52ED' }}></View>
                 <ChartText>Work hours</ChartText>
-                <ChartText2>{chartData.y} (30%)</ChartText2>
+                <ChartText2>{chartData.y} (
+                  {parseFloat((chartData.y/(chartData.y+chartData.z+chartData.k+chartData.n))*100).toFixed(1)}%)
+                </ChartText2>
               </Column>
 
               <Column>
                 <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#FFB800' }}></View>
                 <ChartText>Study hours</ChartText>
-                <ChartText2>{chartData.k} (30%)</ChartText2>
+                <ChartText2>{chartData.k} (
+                  {parseFloat((chartData.k/(chartData.y+chartData.z+chartData.z+chartData.n))*100).toFixed(1)}%)
+                </ChartText2>
               </Column>
 
               <Column>
                 <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#FF4C61' }}></View>
                 <ChartText>Leisure hours</ChartText>
-                <ChartText2>{chartData.n} (30%)</ChartText2>
+                <ChartText2>{chartData.n} (
+                  {parseFloat((chartData.n/(chartData.y+chartData.z+chartData.k+chartData.n))*100).toFixed(1)}%)
+                </ChartText2>
               </Column>
 
               <Column>
                 <View style={{ width: 15, height: 15, borderRadius: 7.5, backgroundColor: '#33D69F' }}></View>
                 <ChartText>Sleep hours</ChartText>
-                <ChartText2>{chartData.z} (30%)</ChartText2>
+                <ChartText2>{chartData.z} (
+                  {parseFloat((chartData.z/(chartData.y+chartData.z+chartData.k+chartData.n))*100).toFixed(1)}%)
+                </ChartText2>
               </Column>
             </TextChartView>
 

@@ -45,13 +45,24 @@ export default function DatePicket({datafilter}) {
       setDia(item)
     }
 
+    // function getItemLayout(data, index) {
+    //   return (
+    //     {
+    //       length: 500,
+    //       offset: 500 * index,
+    //       index
+    //     }    
+    //   );
+    // }
+
     return (
             <CalendarContainer>
               <DateSlider 
               horizontal={true}
-              // initialScrollIndex={today}
+              // initialScrollIndex={today.getDate()}
               data={dateList}
               keyExtractor={item => item.id}
+              // getItemLayout={(data, index) => getItemLayout(data, index)}
               renderItem={({item}) => {
                 return (
                   <DateButtom onPress={() => handleSelect(item) + handleActive(item.day)} 
