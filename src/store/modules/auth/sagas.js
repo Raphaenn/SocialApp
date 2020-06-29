@@ -13,7 +13,24 @@ export function* SignIn({ payload }) {
 
       const { uid } = response.user;
 
-      yield put(signInSuccess(email, uid));
+      // se uid for válido, ir no banco de dados user e buscar as infos do doc com id igual ao uid.
+      const querySnap =  yield firebase.firestore().collection('Users').doc(uid).get().then(function(doc) {
+        if (doc.exists) {
+            return doc.data()
+        } else {
+            console.tron.log("No such document!");
+        }
+      });
+
+      const { name, avatar } = querySnap
+      const userData = {
+        uid: uid,
+        email: email,
+        name: name,
+        avatar: avatar
+      }
+
+      yield put(signInSuccess(userData));
 
     } catch(err) {
       Alert.alert(err.message);
@@ -43,9 +60,30 @@ export function* signUp({ payload }) {
     if(avatar) {
       remoteUri = yield PhotoUpload(avatar, `avatars/${uid}`);
       db.set({ avatar: remoteUri }, { merge: true });
+      const userData = {
+        uid: uid,
+        email: email,
+        name: name,
+        avatar: avatar
+      }
+  
+      yield put(signInSuccess(userData))
     }
 
-    yield put(signInSuccess(email, uid))
+    if(!avatar) {
+      db.set({ avatar: "https://api.adorable.io/avatars/200/abott@adorable.png" }, { merge: true });
+      const userData = {
+        uid: uid,
+        email: email,
+        name: name,
+        avatar: "https://api.adorable.io/avatars/200/abott@adorable.png"
+      }
+  
+      yield put(signInSuccess(userData))
+
+    }
+
+    
 
   } catch(err) {
     Alert.alert("Erro ao cadastrar usuário");

@@ -29,13 +29,11 @@ export default function SignUp({ navigation }) {
 
    function Register() {
     diapatch(signUpRequest(name, email, password, avatar))
-    
   };
 
   async function handlePickAvatar() {
     let result = ImagePicker.launchImageLibrary(options, (response) => {
       console.tron.log('Response = ', response);
-
       if(response.didCancel) {
         console.tron.log('User cancelled image select');
       } else if(response.error) {
@@ -64,7 +62,7 @@ export default function SignUp({ navigation }) {
       
       <TopDiv>
         <Title>{`Hello!\n Sign up to get started.`}</Title>
-        <AvatarInput onPress={() => handlePickAvatar()}>
+        <AvatarInput onPress={handlePickAvatar}>
           <Image source={{ uri: avatar || 'https://api.adorable.io/avatars/200/abott@adorable.png' }} style={{ position: "absolute", width: 100, height: 100, borderRadius: 50 }}/>
           <Icon name="ios-add" size={40} color="#fff" style={{marginTop: 6, marginLeft: 2}} />
         </AvatarInput>

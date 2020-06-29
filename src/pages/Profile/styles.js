@@ -7,7 +7,7 @@ export const ContainerTop = styled.View`
     padding-bottom: 16px;
     align-items: center;
     justify-content: center;
-    border-bottom-color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
     border-bottom-width: 1px;
 `;
 
@@ -22,15 +22,15 @@ export const Container = styled.View`
     /* justify-content: center; */
 `;
 
-export const AvatarView = styled.View`
+export const AvatarView = styled(TouchableOpacity)`
     align-self: center;
     margin-top: 5%;
     align-items: center;
     justify-content: center;
-    width: 130px;
-    height: 130px;
-    border-radius: 65px;
-    background: rgba(240, 123, 63, .5);
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background: #fff;
 `;
 
 export const AvatarImg = styled.Image`
@@ -38,6 +38,7 @@ export const AvatarImg = styled.Image`
     height: 110px;
     border-radius: 55px;
 `;
+
 
 export const FormView = styled.View`
     flex: 1;
@@ -85,4 +86,14 @@ export const Out = styled(TouchableOpacity)`
     width: 100px;
     height: 40px;
     background: red;
+`;
+
+export const LoadView = styled.View`
+    height: 200%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: rgba(255, 255, 255, .4);
+    z-index: 100;
 `;

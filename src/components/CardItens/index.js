@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { View, Text, Image } from "react-native";
+import { useSelector } from "react-redux";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -9,6 +10,8 @@ import {FeedItem, FeedContainer1, Left, TextID, TextDay, TextHour, Right, RightI
 
 export default function CardItens({dados, onPress}) {
 
+  const userData = useSelector(state => state.user.profile)
+  const [ avatar, setAvatart ] = useState(userData.avatar)
   const [expanded, setExpanded] = useState(true);
 
   const onItemPress = () => {
@@ -64,7 +67,7 @@ export default function CardItens({dados, onPress}) {
           <TextIDE>2</TextIDE>
           <TextDayE>Today</TextDayE>
           <Avatar>
-            <Image style={{width: 38, height: 38, borderRadius: 19}} source={dados.avatar} resizeMode="cover" />
+            <Image style={{width: 38, height: 38, borderRadius: 19}} source={{uri: avatar || 'https://api.adorable.io/avatars/200/abott@adorable.png'}} resizeMode="cover" />
           </Avatar>
       </Top>
       <Bottom>

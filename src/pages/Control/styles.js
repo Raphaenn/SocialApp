@@ -86,6 +86,7 @@ export const Chart = styled.View`
 export const TextChartView = styled.View`
     margin: 10px 10px 10px 10px;
     align-self: center;
+    padding-left: 20px;
 `;
 
 export const Column = styled.View`
@@ -109,4 +110,6 @@ export const ChartText2 = styled.Text`
     font-size: 17px;
     color: #003049;
     font-weight: 500;
+    margin-left: 5px;
+    width: 30%;
 `;

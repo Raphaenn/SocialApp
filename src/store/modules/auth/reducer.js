@@ -14,7 +14,7 @@ export default function auth(state = INITIAL_STATE, action) {
             })
         case '@auth/SIGN_IN_SUCCESS':
             return produce(state, draft => {
-                draft.uid = action.payload.uid;
+                draft.uid = action.payload.userData.uid;
                 draft.signed = true;
                 draft.loading = false
             })
