@@ -12,3 +12,10 @@ export function PostSuccess(form) {
         payload: { form }
     }
 };
+
+export function PostDelete(item) {
+    return {
+        type: '@post/POST_DELETE',
+        payload: { item }
+    }
+}

@@ -8,6 +8,7 @@ import { signUpRequest } from "../../store/modules/auth/actions";
 
 import Art1 from "../../assets/authHeader.png";
 import Art2 from "../../assets/authFooter.png";
+import Back from "../../assets/back.png";
 
 import { Container, Title, BackButton, TopDiv, AvatarInput, Form, InputTitle, Space1, LogButton, LogButton2, Content } from './styles';
 
@@ -49,7 +50,7 @@ export default function SignUp({ navigation }) {
     <Container>
       <StatusBar barStyle="light-content"></StatusBar>
       <Image
-        source={Art1}
+        source={Back}
         style={{ marginTop: -116, marginLeft: -50 }}
       ></Image>
       <Image

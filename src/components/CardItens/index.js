@@ -2,14 +2,17 @@
 
 import React, { useState } from 'react';
 import { View, Text, Image } from "react-native";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 
-import {FeedItem, FeedContainer1, Left, TextID, TextDay, TextHour, Right, RightInside, ContentView, ColumnView, /* Expande */ FeedContainer2, Top, TextIDE, TextDayE, Avatar, ContentTop, ContentBottom, ContentViewE, ColumnViewE, Bottom, ColumnView2, ContentViewBottom} from './styles';
+import { PostDelete } from "../../store/modules/posts/actions";
+
+import {FeedItem, FeedContainer1, Left, TextID, TextDay, TextHour, Right, RightInside, ContentView, ColumnView, /* Expande */ FeedContainer2, Top, ExcludButton, TextIDE, TextDayE, Avatar, ContentTop, ContentBottom, ContentViewE, ColumnViewE, Bottom, ColumnView2, ContentViewBottom} from './styles';
 
 export default function CardItens({dados, onPress}) {
 
+  const dispatch = useDispatch()
   const userData = useSelector(state => state.user.profile)
   const [ avatar, setAvatart ] = useState(userData.avatar)
   const [expanded, setExpanded] = useState(true);
@@ -17,6 +20,10 @@ export default function CardItens({dados, onPress}) {
   const onItemPress = () => {
     onPress();
     setExpanded(!expanded);
+  }
+
+  function handleDelete(i) {
+    dispatch(PostDelete(i))
   }
 
     return (
@@ -64,7 +71,9 @@ export default function CardItens({dados, onPress}) {
       :
       <FeedContainer2>
         <Top>
-          <TextIDE>2</TextIDE>
+          <ExcludButton onPress={() => handleDelete(dados.datapost)}>
+            <Icon name="ios-remove-circle" size={30} color="#ff595e" />
+          </ExcludButton>
           <TextDayE>Today</TextDayE>
           <Avatar>
             <Image style={{width: 38, height: 38, borderRadius: 19}} source={{uri: avatar || 'https://api.adorable.io/avatars/200/abott@adorable.png'}} resizeMode="cover" />

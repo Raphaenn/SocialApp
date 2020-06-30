@@ -60,7 +60,7 @@ export const SelectDateButton = styled(TouchableOpacity)`
     justify-content: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    background: ${props => props.active ? "#adb5bd" : "#fff"}
+    background: ${props => props.active ? "#adb5bd" : "#fff"};
 
 `;
 
@@ -113,3 +113,15 @@ export const ChartText2 = styled.Text`
     margin-left: 5px;
     width: 30%;
 `;
+
+export const ModalContainer  = styled.Modal``;
+
+export const ModalView = styled.View`
+    align-items: center;
+    flex: 1;
+    padding-top: 64px;
+    background: #85EBFF;
+    opacity: 0.3;
+`;
+
+export const ModalButton = styled(TouchableOpacity)``;
