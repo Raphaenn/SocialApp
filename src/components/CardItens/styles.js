@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import LinearGradient from "react-native-linear-gradient";
-import { TouchableWithoutFeedback } from "react-native";
+import { TouchableWithoutFeedback, TouchableOpacity } from "react-native";
 
 export const Container = styled(LinearGradient).attrs({
     colors: ['#F07B3F', '#EA5455'],
@@ -105,6 +105,10 @@ export const TextIDE = styled.Text`
     color: #CBBBBB;
     font-size: 18px;
     margin-top: 10px;
+`;
+
+export const ExcludButton = styled(TouchableOpacity)`
+    justify-content: center;
 `;
 
 export const TextDayE = styled.Text`

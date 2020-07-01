@@ -63,7 +63,7 @@ export const Space1 = styled.TextInput`
 
 export const LogButton = styled(TouchableOpacity)`
     margin: 30px;
-    background: #E9446A;
+    background: #FD9A12;
     border-radius: 4px;
     height: 52px;
     align-items: center;

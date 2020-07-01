@@ -8,6 +8,7 @@ import { signInRequest } from "../../store/modules/auth/actions";
 import Art1 from "../../assets/authHeader.png";
 import Art2 from "../../assets/authFooter.png";
 import Logo from "../../assets/loginLogo.png";
+import Back from "../../assets/back.png";
 
 import { Container, Title, Form, InputTitle, Space1, LogButton, LogButton2, Content } from './styles';
 
@@ -25,8 +26,8 @@ export default function SignIn({ navigation }) {
   return (
     <Container>
       <Image
-        source={Art1}
-        style={{ marginTop: -176, marginLeft: -50 }}
+        source={Back}
+        style={{ marginTop: -176, marginLeft: -50, opacity: 0.8 }}
       ></Image>
       <Image
         source={Art2}

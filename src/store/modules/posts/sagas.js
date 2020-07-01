@@ -22,6 +22,22 @@ export function* postIn({ payload, payload2 }) {
     }
 }
 
+export function* Delete({ payload }) {
+
+    const element = payload.item
+
+    try {
+        
+        yield firebase.firestore().collection("Posts").where("datapost", '==', element).get().then((querySnapshot) => {querySnapshot.forEach((doc) => doc.ref.delete())});
+        
+        yield Alert.alert("Post exclude")
+
+    } catch(err) {
+        Alert.alert("Delete error")
+    }
+}
+
 export default all([
-    takeLatest('@post/POST_REQUEST', postIn)
+    takeLatest('@post/POST_REQUEST', postIn),
+    takeLatest("@post/POST_DELETE", Delete)
 ]);
