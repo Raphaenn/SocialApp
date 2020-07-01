@@ -115,13 +115,3 @@ export const ChartText2 = styled.Text`
 `;
 
 export const ModalContainer  = styled.Modal``;
-
-export const ModalView = styled.View`
-    align-items: center;
-    flex: 1;
-    padding-top: 64px;
-    background: #85EBFF;
-    opacity: 0.3;
-`;
-
-export const ModalButton = styled(TouchableOpacity)``;

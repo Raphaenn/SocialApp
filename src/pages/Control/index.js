@@ -6,11 +6,11 @@ import moment from "moment";
 import { View, Text, Modal, Button } from 'react-native';
 import { VictoryPie } from "victory-native";
 import Svg, { Circle } from 'react-native-svg'
-import Icon from "react-native-vector-icons/Ionicons";
 
 import LoadData from "../../util/UserStats";
 import Background from "../../components/background";
-import { Top, Title, Container, SubContainer, SubTitle, Art, ContentContainer, ViewButton, SelectDateButton, ChartContainer, ChartView, Chart, TextChartView, Column, ChartText, ChartText2, ModalContainer, ModalView, ModalButton } from './styles';
+import ModalV from "../../components/ModalView";
+import { Top, Title, Container, SubContainer, SubTitle, Art, ContentContainer, ViewButton, SelectDateButton, ChartContainer, ChartView, Chart, TextChartView, Column, ChartText, ChartText2, ModalContainer} from './styles';
 import Chartart from "../../assets/ChartArt/Chartart.png";
 
 function Control({isFocused}) {
@@ -19,7 +19,7 @@ function Control({isFocused}) {
   const [ totalDate, setTotalDate ] = useState([]);
   const [ activeButton, setActiveButton ] = useState(false);
   const [ activeButton2, setActiveButton2 ] = useState(false);
-  const [ modalOpen, setModalOpen ] = useState(true)
+  const [ modalOpen, setModalOpen ] = useState(false);
 
   async function loadNumber() {
     await firebase.firestore().collection('Posts').where('UserID', '==', authId).get()
@@ -98,22 +98,13 @@ function Control({isFocused}) {
 
       <ContentContainer>
 
-        {/* <ModalContainer 
+        <ModalContainer 
         visible={modalOpen} 
         animationType="slide" 
         presentationStyle="overFullScreen"
-        transparent={true}
-        // fullScreen', 'pageSheet', 'formSheet', 'overFullScreen
-        >
-          <ModalView>
-            <ModalButton onPress={() => setModalOpen(false)}>
-            <Icon name="ios-remove-circle" size={30} color="#ff595e" />
-            </ModalButton>
-            <Text>
-              Modal Open
-            </Text>
-          </ModalView>
-        </ModalContainer> */}
+        transparent={true}>
+          <ModalV />
+        </ModalContainer>
 
         {/* Button Place */}
         <ViewButton>
