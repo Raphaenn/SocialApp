@@ -99,11 +99,11 @@ target 'SocialMedia' do
   end
 end
 
-target 'SocialMedia-tvOS' do
-  # Pods for SocialMedia-tvOS
+# target 'SocialMedia-tvOS' do
+#   # Pods for SocialMedia-tvOS
 
-  target 'SocialMedia-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end
+#   target 'SocialMedia-tvOSTests' do
+#     inherit! :search_paths
+#     # Pods for testing
+#   end
+# end

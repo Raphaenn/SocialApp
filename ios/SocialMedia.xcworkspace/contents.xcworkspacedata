@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SocialMedia.xcodeproj">
+      location = "group:/Users/raphaelneves/Programação/React/SocialMedia/ios/SocialMedia.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SocialMedia.xcodeproj">
    </FileRef>
 </Workspace>

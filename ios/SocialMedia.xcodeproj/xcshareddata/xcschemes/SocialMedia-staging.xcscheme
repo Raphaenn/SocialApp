@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "SocialMedia-tvOS.app"
-               BlueprintName = "SocialMedia-tvOS"
+               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+               BuildableName = "iJournal.app"
+               BlueprintName = "SocialMedia"
                ReferencedContainer = "container:SocialMedia.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,16 +32,16 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "SocialMedia-tvOSTests.xctest"
-               BlueprintName = "SocialMedia-tvOSTests"
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "SocialMediaTests.xctest"
+               BlueprintName = "SocialMediaTests"
                ReferencedContainer = "container:SocialMedia.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Staging"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -54,9 +54,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "SocialMedia-tvOS.app"
-            BlueprintName = "SocialMedia-tvOS"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "iJournal.app"
+            BlueprintName = "SocialMedia"
             ReferencedContainer = "container:SocialMedia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,9 +71,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "SocialMedia-tvOS.app"
-            BlueprintName = "SocialMedia-tvOS"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "iJournal.app"
+            BlueprintName = "SocialMedia"
             ReferencedContainer = "container:SocialMedia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,7 +82,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Staging"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
